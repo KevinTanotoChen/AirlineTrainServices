@@ -1,0 +1,35 @@
+DATABASE TABLE
+
+user:
+-id
+-username
+-email
+-password
+-is_admin
+
+Ticket:
+-id
+-train ID
+-departure time
+-arrive time
+-place
+-seat number
+
+Transaction:
+-id
+-price
+-payment type
+- userID
+- ticketID
+
+Event & News:
+-id
+-content
+
+Promo:
+-id
+-content
+
+Train
+-Train ID
+-Train Seat Available
