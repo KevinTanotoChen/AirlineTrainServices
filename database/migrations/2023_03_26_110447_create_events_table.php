@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('train_id');
-            $table->decimal('price');
-            $table->time('departure_time');
-            $table->time('arrival_time');
-            $table->string('origin_station');
-            $table->string('destination_station');
-            $table->integer('seat_number');
+            $table->string('content');
+            $table->timestamps();
         });
     }
 
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ticket');
+        Schema::dropIfExists('events');
     }
 };

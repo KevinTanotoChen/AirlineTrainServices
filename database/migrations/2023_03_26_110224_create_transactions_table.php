@@ -13,9 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->integer('price');
+            $table->string('payment_type');
+            $table->foreignId('user_id');
+            $table->foreignId('train_id');
+            $table->foreignId('promotion_id');
+            $table->dateTime('transaction_date');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event');
+        Schema::dropIfExists('transactions');
     }
 };
