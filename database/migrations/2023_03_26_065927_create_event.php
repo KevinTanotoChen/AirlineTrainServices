@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('event', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('events', function (Blueprint $table) {
+            $table->id();
             $table->string('content');
         });
     }

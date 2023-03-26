@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('train', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('trains', function (Blueprint $table) {
+            $table->id();
             $table->integer('total_seat');
         });
     }

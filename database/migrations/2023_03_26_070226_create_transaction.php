@@ -13,19 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaction', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('transactions', function (Blueprint $table) {
+            $table->id();
             $table->integer('price');
             $table->string('payment_type');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('user');
-            $table->integer('ticket_id')->unsigned();
-            $table->foreign('ticket_id')->references('id')->on('ticket');
-            $table->integer('promotion_id')->unsigned();
-            $table->foreign('promotion_id')->references('id')->on('promotion');
+            $table->foreignId('user_id');
+            $table->foreignId('train_id');
+            $table->foreignId('promotion_id');
             $table->dateTime('transaction_date');
-            
-            
         });
     }
 
