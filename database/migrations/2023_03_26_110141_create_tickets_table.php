@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->integer('price');
-            $table->string('payment_type');
-            $table->foreignId('user_id');
             $table->foreignId('train_id');
-            $table->foreignId('promotion_id');
-            $table->dateTime('transaction_date');
+            $table->decimal('price');
+            $table->time('departure_time');
+            $table->time('arrival_time');
+            $table->string('origin_station');
+            $table->string('destination_station');
+            $table->integer('seat_number');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction');
+        Schema::dropIfExists('tickets');
     }
 };
