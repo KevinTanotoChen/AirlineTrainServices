@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('promotion', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('promotions', function (Blueprint $table) {
+            $table->id();
             $table->string('content');
+            $table->decimal('discount_price');
         });
     }
 
