@@ -13,7 +13,7 @@
     <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
         <div class="flex justify-between items-center md:ml-20">
             <span class="text-xl">
-                 Airport Train <i class="fa fa-train"></i> Service 
+                 Airpline Train <i class="fa fa-train"></i> Service 
             </span>
             <span class="text-3xl cursor-pointer mx-2 md:hidden block">
                 <i class="fa-sharp fa-solid fa-bars" onclick="Menu(this)"></i>
