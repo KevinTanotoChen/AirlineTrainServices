@@ -24,3 +24,11 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/promo', function () {
+    return view('promo');
+});
+
+Route::get('/event', function () {
+    return view('event');
+});
