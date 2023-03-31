@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/318da83258.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/datepicker.min.js"></script>
+    <script src="js\jquery-3.6.0.js"></script>
     <title>Airport Train Service</title>
 </head>
 <body class="min-h-screen flex flex-col">
