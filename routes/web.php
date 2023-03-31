@@ -28,3 +28,7 @@ Route::get('/login', function () {
 Route::get('/schedule', function () {
     return view('schedule');
 });
+
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
