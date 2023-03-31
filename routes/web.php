@@ -35,4 +35,9 @@ Route::get('/event', function () {
 
 Route::get('/schedule', function () {
     return view('schedule');
+
+});
+
+Route::get('/aboutus', function () {
+    return view('aboutus');
 });

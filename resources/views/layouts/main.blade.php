@@ -32,7 +32,7 @@
                 <a href="/event" class="text-xl">News & Event</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="#" class="text-xl">About Us</a>
+                <a href="/aboutus" class="text-xl">About Us</a>
             </li>
 
             <a href="/login" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
