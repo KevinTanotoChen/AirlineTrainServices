@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/register', function () {
@@ -31,4 +31,8 @@ Route::get('/promo', function () {
 
 Route::get('/event', function () {
     return view('event');
+});
+
+Route::get('/schedule', function () {
+    return view('schedule');
 });

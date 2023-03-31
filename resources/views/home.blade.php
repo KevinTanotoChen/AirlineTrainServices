@@ -2,6 +2,42 @@
 
 @section('container')
 
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .next, .prev{
+        cursor: pointer ;
+        float: left;
+    }
+
+    .slider-inner{
+        float: left;
+        position: relative;
+    }
+
+    .slider-inner img{
+        display: none;
+    }
+
+    .slider-inner img.active{
+        display: inline-block;
+    }
+
+    .slider-inner img.round{
+        border-radius: 10px; 
+    }
+
+    .news-content img.{
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+    }
+
+</style>
+
 <div class="flex flex-col">
     <div class="flex-1 h-1/2">
 
@@ -91,10 +127,10 @@
 
     </div>
     <div class="flex-1">
-        <div class="flex">
+        <div class="flex mt-10 mx-20 space-x-6">
             <div class="flex-initial">
-                <div class="box-content rounded-xl bg-white bg-opacity-50 border ml-20 mt-10 p-4 h-56  shadow-md hover:shadow-lg">
-                    <p class="text-2xl font-semibold">
+                <div class="box-content rounded-xl bg-white bg-opacity-50 border p-4 h-56 shadow-md hover:shadow-lg">
+                    <p class="text-2xl font-bold">
                         Check Our Promotion <br> For Lower Price
                     </p>
                     <button class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded mt-5 text-lg">
@@ -103,53 +139,132 @@
                 </div>
             </div>
             <div class="flex-1">
-                <div class="box-content rounded-xl bg-white bg-opacity-50 border mr-20 ml-5 mt-10 p-4 h-56  shadow-md hover:shadow-lg relative">
-  
-                    <div class="absolute inset-0 h-full w-full bg-pink-500 text-white flex items-center justify-center text-5xl transition-all ease-in-out duration-1000 transform translate-x-0">Hello</div>
-                    <div class="absolute inset-0 h-full w-full bg-red-500 text-white flex items-center justify-center text-5xl transition-all ease-in-out duration-1000 transform translate-x-0">There</div>
-                    <div class="fixed bottom-0 right-0 bg-white w-16 h-16 flex items-center justify-center text-black" onclick="previousSlide(this)">&#x276F;</div>
-                    <div class="fixed bottom-0 right-0 bg-white w-16 h-16 mr-16 border-r border-gray-400 flex items-center justify-center text-black" onclick="nextSlide(this)">&#x276E;</div>
+                <div class="box-content rounded-xl bg-white p-4 h-56 flex items-center border shadow-md hover:shadow-lg">
+
+                        <div class="flex-initial">
+                            <i class="fa-sharp fa-solid fa-angles-left prev"></i>
+                        </div>
+                        <div class="flex-1 ml-20">
+
+                            <div class="slider-inner">
+                                <img src="img/slider-1.png" class="active ml-5 round shadow-md hover:shadow-lg" alt="">
+                                <img src="img/slider-2.png" class="active ml-5 round shadow-md hover:shadow-lg" alt="">
+                                <img src="img/slider-3.png" class="ml-5 round shadow-md hover:shadow-lg" alt="">
+                                <img src="img/slider-4.png" class="ml-5 round shadow-md hover:shadow-lg" alt="">
+                                <img src="img/slider-5.png" class="ml-5 round shadow-md hover:shadow-lg" alt="">
+                            </div>
+
+                        </div>
+                        <div class="flex-initial">
+                            <i class="fa-sharp fa-solid fa-angles-right next"></i>
+                        </div>
+                
                 </div>
             </div>
-        </div>       
+        </div>      
     </div>
-    <div class="flex-1">
-        <div class="box-content rounded-xl bg-white bg-opacity-50 border mx-20 mt-10 p-4 h-96 shadow-md hover:shadow-lg mb-10">
-            <p>testing</p>       
+
+    <div class="flex-1 mx-20 mt-10  ">
+        <span class="text-2xl font-bold"> News & Event</span>
+        <p>
+            Rencana ke Singapura, Malaysia, atau Thailand? Nginep di hotel ini, diskon hingga 70%+IDR 325rb!
+        </p>
+    </div>
+
+    <div class="flex-1 mx-20">
+
+        <div class="flex mt-5 space-x-6">
+            <div class="flex-1">        
+                <div class="box-content rounded-xl bg-white border h-96 shadow-md hover:shadow-lg mb-10">
+                    <div class="flex-col">
+                        <div class="flex-1">
+                            <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
+                        </div>
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-semibold"> Lorem Ipsum </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.amet consectetur adipisicing elit.
+                            </p>
+                        </div>
+                    </div>     
+                </div>
+            </div>
+            <div class="flex-1">
+                <div class="box-content rounded-xl bg-white border h-96 shadow-md hover:shadow-lg mb-10">
+                    
+                    <div class="flex-col">
+                        <div class="flex-1">
+                            <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
+                        </div>
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-semibold"> Lorem Ipsum </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.
+                            </p>
+                        </div>
+                    </div>  
+
+
+                </div>
+            </div>
+            <div class="flex-1">
+                <div class="box-content rounded-xl bg-white border  h-96 shadow-md hover:shadow-lg mb-10">
+                    
+                    <div class="flex-col">
+                        <div class="flex-1">
+                            <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
+                        </div>
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-semibold"> Lorem Ipsum </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.
+                            </p>
+                        </div>
+                    </div>  
+
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
     
 <script>
-    setTimeout(function(){
-        let activeSlide = document.querySelector('.slide.translate-x-0');
-        activeSlide.classList.remove('translate-x-0');
-        activeSlide.classList.add('-translate-x-full');
-        
-        let nextSlide = activeSlide.nextElementSibling;
-        nextSlide.classList.remove('translate-x-full');
-        nextSlide.classList.add('translate-x-0');
-    }, 3000);
+    
+    $(function(){
 
-    function nextSlide(){
-        let activeSlide = document.querySelector('.slide.translate-x-0');
-        activeSlide.classList.remove('translate-x-0');
-        activeSlide.classList.add('-translate-x-full');
-        
-        let nextSlide = activeSlide.nextElementSibling;
-        nextSlide.classList.remove('translate-x-full');
-        nextSlide.classList.add('translate-x-0');
-    }
+        $('.next').on('click', function(){
+            var currentImg = $('.active');
+            var nextImg = currentImg.next();
+            var firstImg = currentImg.prevAll().last();
 
-    function previousSlide(){
-        let activeSlide = document.querySelector('.slide.translate-x-0');
-        activeSlide.classList.remove('translate-x-0');
-        activeSlide.classList.add('translate-x-full');
-        
-        let previousSlide = activeSlide.previousElementSibling;
-        previousSlide.classList.remove('-translate-x-full');
-        previousSlide.classList.add('translate-x-0');
-    }
+            if(nextImg.length > 0){
+                currentImg.removeClass('active').css('z-index', '-10');
+                nextImg.addClass('active').css('z-index', '10');
+            }
+            else{
+                currentImg.removeClass('active').css('z-index', '-10');
+                firstImg.addClass('active').css('z-index', '10');
+            }   
+        });
+
+        $('.prev').on('click', function(){
+            var currentImg = $('.active');
+            var prevImg = currentImg.prev();
+            var firstImg = currentImg.nextAll().last();
+
+            if(prevImg.length > 0){
+                currentImg.removeClass('active').css('z-index', '-10');
+                prevImg.addClass('active').css('z-index', '10');
+            }
+            else{
+                currentImg.removeClass('active').css('z-index', '-10');
+                firstImg.addClass('active').css('z-index', '10');
+            }   
+        });
+    });
+
 </script>   
 
 @endsection

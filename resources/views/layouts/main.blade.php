@@ -7,14 +7,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/318da83258.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/datepicker.min.js"></script>
+    <script src="js\jquery-3.6.0.js"></script>
     <title>Airport Train Service</title>
 </head>
 <body class="min-h-screen flex flex-col">
     <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
         <div class="flex justify-between items-center md:ml-20">
-            <span class="text-xl">
+            <a href="/" class="text-xl">
                  Airpline Train <i class="fa fa-train"></i> Service 
-            </span>
+            </a>
             <span class="text-3xl cursor-pointer mx-2 md:hidden block">
                 <i class="fa-sharp fa-solid fa-bars" onclick="Menu(this)"></i>
             </span>
@@ -22,7 +23,7 @@
 
         <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 md:mr-20">
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="#" class="text-xl">Schedule</a>
+                <a href="/schedule" class="text-xl">Schedule</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
                 <a href="#" class="text-xl">Promo</a>
@@ -34,12 +35,12 @@
                 <a href="#" class="text-xl">About Us</a>
             </li>
 
-            <button class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
+            <a href="/login" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
                 Login
-            </button>
-            <button class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded my-6 md:my-0">
+            </a>
+            <a href="/register" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded my-6 md:my-0">
                 Register
-            </button>
+            </a>
         </ul>
     </nav>
 
@@ -89,7 +90,7 @@
         </div>
         <div class="w-full px-10 shadow">
             <div class="text-center">
-                Copyright <strong><span>Company</span></strong>. All Rights Reserved
+                Copyright <strong><span>Kelompok 1</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer>
