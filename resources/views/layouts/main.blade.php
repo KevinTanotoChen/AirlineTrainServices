@@ -26,10 +26,10 @@
                 <a href="/schedule" class="text-xl">Schedule</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="#" class="text-xl">Promo</a>
+                <a href="/promo" class="text-xl">Promo</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="#" class="text-xl">News & Event</a>
+                <a href="/event" class="text-xl">News & Event</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
                 <a href="/aboutus" class="text-xl">About Us</a>
