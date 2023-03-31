@@ -3,11 +3,6 @@
 @section('container')
 
 <style>
-    .container{
-        display: flex;
-        justify-content: center;
-    }
-
     .next, .prev{
         cursor: pointer ;
         float: left;
@@ -36,15 +31,21 @@
         background-size: 100% 100%;
     }
 
+    .home img{
+        width: 100%;
+        height: 580px;
+        object-fit:cover;
+    }
+
 </style>
 
 <div class="flex flex-col">
     <div class="flex-1 h-1/2">
 
-        <div class="relative">
-            <img src="img/home-image.jpg">
+        <div class="relative home">
+            <img src="img/home-image.jpg" class="brightness-75">
             <div class="absolute inset-0 flex justify-center items-center">
-                <div class="box-content h-2/5 w-3/4 rounded-xl bg-white bg-opacity-50 shadow-md hover:shadow-lg">
+                <div class="box-content h-2/5 w-3/4 rounded-xl bg-white bg-opacity-50 shadow-md hover:shadow-lg ">
                     <div class="inner-box h-1/5 w-full bg-white rounded-t-xl p-3">
                         <div class="flex ml-10">
                             <div class="flex-1 w-1/3 text-2xl font-semibold">
