@@ -180,8 +180,9 @@
                         <div class="flex-1">
                             <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
                         </div>
-                        <div class="flex-1 p-4">
-                            <p class="text-center">
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-semibold"> Lorem Ipsum </h3>
+                            <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.amet consectetur adipisicing elit.
                             </p>
                         </div>
@@ -195,8 +196,9 @@
                         <div class="flex-1">
                             <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
                         </div>
-                        <div class="flex-1 p-4">
-                            <p class="text-center">
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-semibold"> Lorem Ipsum </h3>
+                            <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.
                             </p>
                         </div>
@@ -212,8 +214,9 @@
                         <div class="flex-1">
                             <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
                         </div>
-                        <div class="flex-1 p-4">
-                            <p class="text-center">
+                        <div class="flex-1 p-4 text-center">
+                            <h3 class="font-semibold"> Lorem Ipsum </h3>
+                            <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.
                             </p>
                         </div>
