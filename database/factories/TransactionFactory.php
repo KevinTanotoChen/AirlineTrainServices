@@ -17,7 +17,11 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => fake()->numberBetween(1,5),
+            'ticket_id' => fake()->numberBetween(1,5),
+            'promotion_id' => fake()->numberBetween(1,5),
+            'payment_type' => fake()->randomElement(['Credit Card','GoPay','Debit Card']),
+            'price' => 10000
         ];
     }
 }

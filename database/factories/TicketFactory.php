@@ -17,7 +17,7 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'schedule_id' => fake()->numberBetween(1, 108)
         ];
     }
 }
