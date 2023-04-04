@@ -136,10 +136,11 @@
                                       </button>
                                     </div>
                                 </div>
-    
-                                <button class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded mt-10 text-lg">
-                                    Find Ticket
-                                </button>
+                                <div class="mt-10">
+                                    <a href="/srp"class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg">
+                                        Find Ticket
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

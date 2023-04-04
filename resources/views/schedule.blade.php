@@ -3,7 +3,6 @@
 @section('container')
 
 <style>
-
     .title img{
         width: 100%;
         height: 200px;
@@ -37,7 +36,7 @@
 
         <div class="flex items-center justify-center">
 
-            <table class="table-fixed w-11/12 border-collapse border border">
+            <table class="table-fixed w-11/12 border-collapse border">
                 <thead class="text-center">
                   <tr class="border">
                     <th>Bandara Soekarno Hatta</th>
