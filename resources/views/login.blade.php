@@ -12,13 +12,13 @@
                 <div class="bg-[#444444] w-8 h-8 flex justify-center items-center">
                     <img src="img/email-icon.png" alt="" class="w-3">
                 </div>
-                <input type="text" placeholder="Email address" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] placeholder:text-[12px]">
+                <input type="text" name="email" id="email" placeholder="Email address" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] placeholder:text-[12px]">
             </div>
             <div class="flex justify-center">
                 <div class="bg-[#444444] w-8 h-8 flex justify-center items-center">
                     <img src="img/pass-icon.png" alt="" class="w-3">
                 </div>
-                <input type="text" placeholder="Password" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] placeholder:text-[12px]">
+                <input type="text" name="password" id="password" placeholder="Password" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] placeholder:text-[12px]">
             </div>
             
             <button class="bg-red-400 duration-500 px-4 py-1 mt-36 w-48 hover:bg-red-300 rounded text-lg">
