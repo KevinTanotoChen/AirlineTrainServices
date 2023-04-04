@@ -15,9 +15,9 @@ class TrainFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-    {
+    {   
         return [
-            //
+            'total_seat' => 180
         ];
     }
 }

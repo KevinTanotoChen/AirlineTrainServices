@@ -17,7 +17,8 @@ class PromotionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'content' => fake()->sentence(8),
+            'discount_price' => fake()->numberBetween(1,3) * 1000
         ];
     }
 }

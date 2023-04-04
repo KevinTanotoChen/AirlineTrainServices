@@ -18,9 +18,8 @@ return new class extends Migration
             $table->integer('price');
             $table->string('payment_type');
             $table->foreignId('user_id');
-            $table->foreignId('train_id');
+            $table->foreignId('ticket_id');
             $table->foreignId('promotion_id');
-            $table->dateTime('transaction_date');
             $table->timestamps();
         });
     }
