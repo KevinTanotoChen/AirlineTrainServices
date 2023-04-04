@@ -20,7 +20,6 @@ class LoginController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required|min:8|max:20'
         ]);
-        dd($credentials);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
