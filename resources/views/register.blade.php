@@ -13,7 +13,7 @@
                 <div class="bg-[#444444] w-8 h-8 flex justify-center items-center">
                     <img src="img/user-icon.png" alt="" class="w-3">
                 </div>
-                <input type="text" name="username" id="username" placeholder="Username" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] text-[12px] placeholder:text-[12px]" value="{{ old('username') }}" required>
+                <input type="text" name="user_name" id="user_name" placeholder="Username" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] text-[12px] placeholder:text-[12px]" value="{{ old('username') }}" required>
             </div>
             <div class="flex justify-center">
                 <div class="bg-[#444444] w-8 h-8 flex justify-center items-center">
@@ -41,7 +41,7 @@
                 <a href="/login" class="text-sm mt-4 font-semibold">Login</a>
             </div>
         </form>
-        @error('username')
+        @error('user_name')
             <div class="bg-red-100 text-sm border border-red-400 text-red-700 px-4 py-3 mt-3 rounded relative" role="alert">
                 <span class="block sm:inline">{{ $message }}</span>
             </div>

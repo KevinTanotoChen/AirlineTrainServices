@@ -16,19 +16,18 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'user_name' => 'required|unique:users',
-            'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:8|max:20',
+            'email' => 'required|email:dns|unique:users',
             'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9'
         ]);
-        dd("regist berhasil");
-        // return request()->all();
 
 
-        // $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['password'] = bcrypt($validatedData['password']);
 
-        // User::create($validatedData);
-        // return redirect('/login')->with('success', 'Your account successfully registered!');
+        User::create($validatedData);
+        
+        return redirect('/login')->with('success', 'Your account successfully registered!');
     }
 }
