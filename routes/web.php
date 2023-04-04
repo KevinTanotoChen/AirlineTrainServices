@@ -41,3 +41,11 @@ Route::get('/schedule', function () {
 Route::get('/aboutus', function () {
     return view('aboutus');
 });
+
+Route::get('/srp', function () {
+    return view('srp');
+});
+
+Route::get('/transaction', function () {
+    return view('transaction');
+});

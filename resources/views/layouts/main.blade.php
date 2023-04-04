@@ -14,7 +14,7 @@
     <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
         <div class="flex justify-between items-center md:ml-20">
             <a href="/" class="text-xl">
-                 Airpline Train <i class="fa fa-train"></i> Service 
+                 Airline Train <i class="fa fa-train"></i> Service 
             </a>
             <span class="text-3xl cursor-pointer mx-2 md:hidden block">
                 <i class="fa-sharp fa-solid fa-bars" onclick="Menu(this)"></i>
