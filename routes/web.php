@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +38,7 @@ Route::get('/event', function () {
     return view('event');
 });
 
-Route::get('/schedule', function () {
-    return view('schedule');
-
-});
+Route::resource('/schedule', ScheduleController::class);
 
 Route::get('/aboutus', function () {
     return view('aboutus');
