@@ -34,13 +34,22 @@
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
                 <a href="/aboutus" class="text-xl">About Us</a>
             </li>
-
-            <a href="/login" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
-                Login
-            </a>
-            <a href="/register" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded my-6 md:my-0">
-                Register
-            </a>
+            
+            @auth
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
+                        Logout
+                    </button>
+                </form>
+            @else
+                <a href="/login" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
+                    Login
+                </a>
+                <a href="/register" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded my-6 md:my-0">
+                    Register
+                </a>
+            @endauth
         </ul>
     </nav>
 
