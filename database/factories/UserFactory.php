@@ -20,7 +20,7 @@ class UserFactory extends Factory
         return [
             'user_name' => fake()->name(),
             'email' => fake()->unique()->freeEmail(),
-            'password' => bcrypt('12345'),
+            'password' => bcrypt('12345678'),
             'remember_token' => Str::random(10),
             'phone_number' => fake()->numerify('0815####'),
             'is_admin' => random_int(0,1)
