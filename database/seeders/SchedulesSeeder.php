@@ -23,7 +23,7 @@ class SchedulesSeeder extends Seeder
                 'departure_time' => '06:00:00',
                 'arrival_time' => '07:00:00',
             ],
-            
+
             [
                 'train_id' => 1,
                 'origin_station_id' => 2,
