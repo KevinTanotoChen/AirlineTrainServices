@@ -19,13 +19,15 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/register', [RegisterController::class, 'show']);
+Route::get('/register', [RegisterController::class, 'show'])->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'show']);
+Route::get('/login', [LoginController::class, 'show'])->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/promo', function () {
     return view('promo');

@@ -27,7 +27,7 @@ class LoginController extends Controller
             return redirect()->intended('/');
         }
 
-        return redirect('/login')->with('error', 'Invalid Credential');
+        return redirect('/login')->with('invalid', 'Invalid Credential');
     }
 
     public function logout(Request $request)
@@ -40,6 +40,5 @@ class LoginController extends Controller
 
         return redirect('/');
     }
-
 
 }

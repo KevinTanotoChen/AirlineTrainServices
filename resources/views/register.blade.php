@@ -23,7 +23,7 @@
                 <span class="block sm:inline">{{ $message }}</span>
             </div>
         @enderror
-    <div class="box-content rounded-xl bg-white bg-opacity-50 border mt-10 mb-10 p-4 h-[440px] w-[280px] shadow-md hover:shadow-lg">
+    <div class="box-content rounded-xl bg-white bg-opacity-50 border mt-10 mb-10 p-4 h-[400px] w-[280px] shadow-md hover:shadow-lg">
         <form action="/register" method="POST" class="grid grid-cols-1 justify-items-center">
             @csrf
             <p class="text-2xl text-center font-semibold mb-10">
@@ -33,7 +33,7 @@
                 <div class="bg-[#444444] w-8 h-8 flex justify-center items-center">
                     <img src="img/user-icon.png" alt="" class="w-3">
                 </div>
-                <input type="text" name="user_name" id="user_name" placeholder="Username" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] text-[12px] placeholder:text-[12px]" value="{{ old('username') }}" autofocus>
+                <input type="text" name="user_name" id="user_name" placeholder="Username" class=" h-8 w-48 p-2 mb-2 bg-[#D9D9D9] text-[12px] placeholder:text-[12px]" value="{{ old('user_name') }}" autofocus>
             </div>
             <div class="flex justify-center">
                 <div class="bg-[#444444] w-8 h-8 flex justify-center items-center">
