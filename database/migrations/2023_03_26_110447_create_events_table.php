@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->string('title');
+            $table->text('excerpt');
+            $table->text('content');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

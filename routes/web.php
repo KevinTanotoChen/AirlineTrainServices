@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,11 @@ Route::get('/promo', function () {
     return view('promo');
 });
 
-Route::get('/event', function () {
-    return view('event');
-});
+Route::resource('/event', EventController::class);
+
+// Route::get('event/{id}', function ($id) {
+//     return view('event');
+// });
 
 Route::resource('/schedule', ScheduleController::class);
 
