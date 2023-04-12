@@ -8,7 +8,7 @@
 
             <div class="flex flex-col">
                 <div class="flex-1">
-                    <img src="img/event1.png" alt="" style="height: 15rem; width: 100%" >
+                    <img src="{{ asset('img/event1.png') }}" alt="" style="height: 15rem; width: 100%" >
                 </div>
                 <div>
 
