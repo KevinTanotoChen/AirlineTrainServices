@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Schedule;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
-class ScheduleController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,20 +14,10 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-
-        $trainIds_right = [1, 2, 3]; 
-        $trainIds_left = [4, 5, 6]; 
-        $originStationIds = [1, 2, 3, 4];
-
-        $schedules_right = Schedule::whereIn('train_id', $trainIds_right)
-                            ->whereIn('origin_station_id', $originStationIds)
-                            ->get();
-
-        return view('/schedule/index',[
-            "title" => "Schedules",
-            'schedules_right' => $schedules_right
+        return view('/event/index',[
+            "title" => "Events",
+            "events" =>Event::all()
         ]);
-
     }
 
     /**
@@ -54,21 +44,26 @@ class ScheduleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Schedule  $schedule
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Schedule $schedule)
+    public function show($id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        return view('event/event',[
+            "title" => "Event",
+            "event" => $event
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Schedule  $schedule
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Schedule $schedule)
+    public function edit(Event $event)
     {
         //
     }
@@ -77,10 +72,10 @@ class ScheduleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Schedule  $schedule
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Schedule $schedule)
+    public function update(Request $request, Event $event)
     {
         //
     }
@@ -88,10 +83,10 @@ class ScheduleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Schedule  $schedule
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Schedule $schedule)
+    public function destroy(Event $event)
     {
         //
     }
