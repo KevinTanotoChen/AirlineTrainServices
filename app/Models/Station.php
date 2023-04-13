@@ -12,4 +12,12 @@ class Station extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function originSchedules(){
+        return $this->hasMany(Schedule::class, 'origin_station_id');
+    }
+
+    public function destinationSchedules(){
+        return $this->hasMany(Schedule::class, 'destination_station_id');
+    }
 }

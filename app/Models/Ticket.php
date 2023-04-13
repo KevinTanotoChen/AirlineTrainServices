@@ -12,4 +12,13 @@ class Ticket extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function transaction(){
+        return $this->belongsTo(Transaction::class);
+    }
+
+    public function schedule(){
+        return $this->belongsTo(Schedule::class);
+    }
+
 }
