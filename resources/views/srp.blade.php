@@ -39,7 +39,7 @@
                         Ticket Summary
                     </div>
                     <div class="flex-1">
-                        Wednesday, April 5, 2023
+                        {{ Carbon\Carbon::now()->toFormattedDayDateString() }}
                     </div>
                     <div class="flex-1">
                         Sudirman -> Duri

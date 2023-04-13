@@ -23,9 +23,22 @@ class ScheduleController extends Controller
                             ->whereIn('origin_station_id', $originStationIds)
                             ->get();
 
+       
+        $schedule_ordered_lr = Schedule::whereBetween('train_id', [1,3])
+        ->whereColumn('destination_station_id' , '>', 'origin_station_id')->orderBy('origin_station_id', 'asc')->orderBy('departure_time', 'asc')->get();
+        
+        $schedule_ordered_rl = Schedule::whereBetween('train_id', [1,3])
+        ->whereColumn('destination_station_id' , '<', 'origin_station_id')->orderBy('origin_station_id', 'asc')->orderBy('departure_time', 'asc')->get();
+
+        
+        
+
         return view('/schedule/index',[
             "title" => "Schedules",
-            'schedules_right' => $schedules_right
+            'schedules_right' => $schedules_right,
+            'schedules_ordered_lr' => $schedule_ordered_lr,
+            'schedules_ordered_rl' => $schedule_ordered_rl,
+            
         ]);
 
     }

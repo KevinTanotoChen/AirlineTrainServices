@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SrpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +47,11 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 });
 
-Route::get('/srp', function () {
-    return view('srp');
-});
+
+
+
+Route::get('/srp', [SrpController::class, 'search']);
+
 
 Route::get('/transaction', function () {
     return view('transaction');
