@@ -12,4 +12,8 @@ class Train extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function schedule(){
+        return $this->hasMany(Schedule::class);
+    }
 }
