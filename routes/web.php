@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,11 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+Route::resource('/', HomeController::class);
 
 Route::get('/register', [RegisterController::class, 'show'])->middleware('guest');
 
@@ -36,10 +39,6 @@ Route::get('/promo', function () {
 });
 
 Route::resource('/event', EventController::class);
-
-// Route::get('event/{id}', function ($id) {
-//     return view('event');
-// });
 
 Route::resource('/schedule', ScheduleController::class);
 

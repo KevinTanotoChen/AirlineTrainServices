@@ -76,9 +76,9 @@
                                 <div class="inline-block relative w-5/6">
                                     <select class="appearance-none px-4 py-1 w-full rounded text-gray-500">
                                         <option>Select Origin Station</option>
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
+                                        @foreach ($stations as $station)
+                                            <option value="{{ $station->id }}">Station {{ $station->id }}</option>
+                                        @endforeach
                                     </select>
                                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                         <i class="fa-solid fa-chevron-down"></i>
@@ -103,9 +103,9 @@
                                 <div class="inline-block relative w-5/6">
                                     <select class="appearance-none px-4 py-1 w-full rounded text-gray-500">
                                         <option>Select Destination Station</option>
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
+                                        @foreach ($stations as $station)
+                                            <option value="{{ $station->id }}">Station {{ $station->id }}</option>
+                                        @endforeach
                                     </select>
                                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                         <i class="fa-solid fa-chevron-down"></i>
