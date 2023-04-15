@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use App\Models\Station;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -93,12 +94,66 @@ class HomeController extends Controller
         $origin_station = $request->input('origin_station');
         $destination_station = $request->input('destination_station');
         
-        $schedules = Schedule::where('origin_station_id', $origin_station)
+        if($origin_station < $destination_station){
+            $end_station = 4;
+        }
+        else{
+            $end_station = 1;
+        }
+
+      
+        if(abs($destination_station-$origin_station) == 1){
+            $schedules = Schedule::where('origin_station_id', $origin_station)
                             ->where('destination_station_id', $destination_station)
+                            ->where('end_station_id', '=', $end_station)
                             ->get();
+
+        }
+
+        if (abs($destination_station - $origin_station) == 2) {
+            $schedules = DB::table('schedules as s1')
+                ->select('s1.train_id', 's1.departure_time', 's2.arrival_time', 's1.origin_station_id', 's2.destination_station_id')
+                ->join('schedules as s2', 's1.arrival_time', '=', 's2.departure_time')
+                ->where('s1.origin_station_id', $origin_station)
+                ->where('s2.destination_station_id', $destination_station)
+                ->where('s1.end_station_id', $end_station)
+                ->where('s2.end_station_id', $end_station)
+                ->orderBy('s1.departure_time')
+                ->get();
+        }
         
+        if ($destination_station - $origin_station == 3) {
+            $schedules = DB::table('schedules as s1')
+                ->select('s1.train_id', 's1.departure_time', 's3.arrival_time', 's1.origin_station_id', 's3.destination_station_id')
+                ->join('schedules as s2', 's1.arrival_time', '=', 's2.departure_time')
+                ->join('schedules as s3', 's2.arrival_time', '=', 's3.departure_time')
+                ->where('s1.origin_station_id', $origin_station)
+                ->where('s2.origin_station_id', $origin_station+1)
+                ->where('s3.origin_station_id', $origin_station+2)
+                ->where('s1.end_station_id', $end_station)
+                ->where('s2.end_station_id', $end_station)
+                ->where('s3.end_station_id', $end_station)
+                ->orderBy('s1.departure_time')
+                ->get();
+        }
+
+        if ($destination_station - $origin_station == -3) {
+            $schedules = DB::table('schedules as s1')
+            ->select('s1.train_id', 's1.departure_time', 's3.arrival_time', 's1.origin_station_id', 's3.destination_station_id')
+            ->join('schedules as s2', 's1.arrival_time', '=', 's2.departure_time')
+            ->join('schedules as s3', 's2.arrival_time', '=', 's3.departure_time')
+            ->where('s1.origin_station_id', $origin_station)
+                ->where('s2.origin_station_id', $origin_station - 1)
+                ->where('s3.origin_station_id', $origin_station - 2)
+                ->where('s1.end_station_id', $end_station)
+                ->where('s2.end_station_id', $end_station)
+                ->where('s3.end_station_id', $end_station)
+                ->orderBy('s1.departure_time')
+                ->get();
+        }
 
         return view('/srp/index', compact('schedules'));
+        
     }
 }
 
