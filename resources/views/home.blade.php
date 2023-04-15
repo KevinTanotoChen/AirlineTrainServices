@@ -67,14 +67,17 @@
                             </div>
                         </div>
                     </div>
-    
+
+                    <form action="/search" method="POST">
+                    @csrf
                     <div class="flex ml-10 p-4">
                         <div class="flex-1">
                             <div class="flex-col">
                                 <div class="font-semibold text-lg">Origin</div>
+
     
                                 <div class="inline-block relative w-5/6">
-                                    <select class="appearance-none px-4 py-1 w-full rounded text-gray-500">
+                                    <select class="appearance-none px-4 py-1 w-full rounded text-gray-500" name="origin_station">
                                         <option>Select Origin Station</option>
                                         @foreach ($stations as $station)
                                             <option value="{{ $station->id }}">Station {{ $station->id }}</option>
@@ -101,7 +104,7 @@
                                 <div class="font-semibold text-lg">Destination</div>
     
                                 <div class="inline-block relative w-5/6">
-                                    <select class="appearance-none px-4 py-1 w-full rounded text-gray-500">
+                                    <select class="appearance-none px-4 py-1 w-full rounded text-gray-500" name="destination_station">
                                         <option>Select Destination Station</option>
                                         @foreach ($stations as $station)
                                             <option value="{{ $station->id }}">Station {{ $station->id }}</option>
@@ -131,13 +134,14 @@
                                     </div>
                                 </div>
                                 <div class="mt-11">
-                                    <a href="/srp"class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg">
+                                    <button type="submit" class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg">
                                         Find Ticket
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

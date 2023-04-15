@@ -12,6 +12,7 @@
 </style>
 
 <div class="flex flex-col">
+
     <div class="flex-1">
 
         <div class="relative title">
@@ -32,6 +33,7 @@
         </div>
 
     </div>
+
     <div class="flex-1 my-10">
 
         <div class="flex items-center justify-center">
@@ -77,6 +79,8 @@
         </div>
 
     </div>
+
+    
 </div>
 
 @endsection
