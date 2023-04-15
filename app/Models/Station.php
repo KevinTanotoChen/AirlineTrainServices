@@ -20,4 +20,10 @@ class Station extends Model
     public function destinationSchedules(){
         return $this->hasMany(Schedule::class, 'destination_station_id');
     }
+
+    public function schedules()
+    {
+        return $this->belongsToMany(Schedule::class)
+                    ->withPivot('total_seat');
+    }
 }

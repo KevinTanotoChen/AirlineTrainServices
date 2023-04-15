@@ -7,6 +7,8 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\SrpController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +20,6 @@ use App\Http\Controllers\PromotionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('home');
-// });
 
 Route::resource('/', HomeController::class);
 
@@ -41,14 +39,15 @@ Route::resource('/event', EventController::class);
 
 Route::resource('/schedule', ScheduleController::class);
 
+Route::resource('/srp', SrpController::class);
+
+Route::post('/search', [HomeController::class, 'search'])->name('search');
+
 Route::get('/aboutus', function () {
     return view('aboutus');
-});
-
-Route::get('/srp', function () {
-    return view('srp');
 });
 
 Route::get('/transaction', function () {
     return view('transaction');
 });
+

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Schedule;
-use App\Models\Station;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class SrpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        return view('home', [
-            'title' => 'Home',
-            'stations'=> Station::all()
+        return view('/srp/index',[
+            "title" => "Search Result",
+            "schedules" =>Schedule::all()
         ]);
     }
 
@@ -87,18 +86,4 @@ class HomeController extends Controller
     {
         //
     }
-
-    public function search(Request $request)
-    {
-        $origin_station = $request->input('origin_station');
-        $destination_station = $request->input('destination_station');
-        
-        $schedules = Schedule::where('origin_station_id', $origin_station)
-                            ->where('destination_station_id', $destination_station)
-                            ->get();
-        
-
-        return view('/srp/index', compact('schedules'));
-    }
 }
-
