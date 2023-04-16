@@ -56,8 +56,11 @@
                     <table class="table-fixed w-11/12">
                         <thead class="text-center">
                           <tr class="border-b">
+                            <th>Train</th>
                             <th>Departure</th>
                             <th>Arrival</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
                             {{-- <th>Seat Availability</th>
                             <th>Price</th>
                             <th></th> --}}
@@ -67,8 +70,11 @@
                             @foreach ($schedules as $schedule)
 
                                 <tr class="border-b">
+                                    <td>{{ $schedule->train_id }}</td>
                                     <td>{{ $schedule->departure_time }}</td>
                                     <td>{{ $schedule->arrival_time }}</td>
+                                    <td>{{ $schedule->origin_station_id }}</td>
+                                    <td>{{ $schedule->destination_station_id }}</td>
                                     {{-- <td>{{ $schedule->find($station_id)->pivot->total_seat}}</td> --}}
                                     {{-- <td>10000</td> --}}
                                     <td>

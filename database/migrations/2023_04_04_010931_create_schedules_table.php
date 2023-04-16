@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('destination_station_id');
             $table->time('departure_time');
             $table->time('arrival_time');
+            $table->foreignId('end_station_id');
             $table->timestamps();
         });
     }
