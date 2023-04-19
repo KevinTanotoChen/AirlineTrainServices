@@ -139,10 +139,10 @@ class HomeController extends Controller
 
         if ($destination_station - $origin_station == -3) {
             $schedules = DB::table('schedules as s1')
-            ->select('s1.train_id', 's1.departure_time', 's3.arrival_time', 's1.origin_station_id', 's3.destination_station_id')
-            ->join('schedules as s2', 's1.arrival_time', '=', 's2.departure_time')
-            ->join('schedules as s3', 's2.arrival_time', '=', 's3.departure_time')
-            ->where('s1.origin_station_id', $origin_station)
+                ->select('s1.train_id', 's1.departure_time', 's3.arrival_time', 's1.origin_station_id', 's3.destination_station_id')
+                ->join('schedules as s2', 's1.arrival_time', '=', 's2.departure_time')
+                ->join('schedules as s3', 's2.arrival_time', '=', 's3.departure_time')
+                ->where('s1.origin_station_id', $origin_station)
                 ->where('s2.origin_station_id', $origin_station - 1)
                 ->where('s3.origin_station_id', $origin_station - 2)
                 ->where('s1.end_station_id', $end_station)
