@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SrpController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 
 /*
@@ -51,3 +52,14 @@ Route::get('/transaction', function () {
     return view('transaction');
 });
 
+Route::get('/dashboard', [DashboardController::class,'index']);
+
+Route::get('/load/{id}', function ($id) {
+    if ($id == 'transaction-link') {
+        return view('dashboard.transaction');
+    } else if ($id == 'news-link') {
+        return view('dashboard.event');
+    } else if ($id == 'promotion-link') {
+        return view('dashboard.promotion');
+    }
+});
