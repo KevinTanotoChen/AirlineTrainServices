@@ -94,7 +94,7 @@
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                         <i class="fa-regular fa-calendar"></i>
                                     </div>
-                                    <input datepicker type="text" class="rounded block w-5/6 pl-9 px-4 py-1" placeholder="Select date">
+                                    <input datepicker type="text" class="rounded block w-5/6 pl-9 px-4 py-1" placeholder="Select date" name="date" id="date">
                                 </div>
 
                             </div>
@@ -120,15 +120,14 @@
                         <div class="flex-1">
                             <div class="flex-col">
                                 <div class="font-semibold text-lg">Total Passenger</div>
-
                                 <div class="relative">
                                     <input type="text" class="rounded block w-5/6 pl-9 px-4 py-1" value="">
                                     <div class="absolute inset-y-0 left-0 flex items-center w-5/6 justify-between">
-                                      <button class="font-bold py-1 px-3 rounded-r" onclick="if(parseInt(this.nextElementSibling.value)>1) {this.nextElementSibling.value = parseInt(this.nextElementSibling.value) - 1}">
+                                      <button type="button" class="font-bold py-1 px-3 rounded-r" onclick="if(parseInt(this.nextElementSibling.value)>1) {this.nextElementSibling.value = parseInt(this.nextElementSibling.value) - 1}">
                                         <span>-</span>
                                       </button>
-                                      <input type="number" class="w-10 text-center font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center outline-none" value="1" min="1">
-                                      <button class="font-bold py-1 px-3 rounded-r" onclick="this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1">
+                                      <input type="number" class="w-10 text-center font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center outline-none" value="1" min="1" name="passengers" id="passengers">
+                                      <button type="button" class="font-bold py-1 px-3 rounded-r" onclick="this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1">
                                         <span>+</span>
                                       </button>
                                     </div>
@@ -142,6 +141,7 @@
                         </div>
                     </div>
                     </form>
+
                 </div>
             </div>
         </div>

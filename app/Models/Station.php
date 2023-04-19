@@ -23,7 +23,6 @@ class Station extends Model
 
     public function schedules()
     {
-        return $this->belongsToMany(Schedule::class)
-                    ->withPivot('total_seat');
+        return $this->belongsToMany(Train::class);
     }
 }
