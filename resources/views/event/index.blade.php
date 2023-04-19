@@ -35,7 +35,7 @@
                 <div class="flex flex-col justify-items-center p-4 text-center">
                     <div>
 
-                        <a href="{{ route('event.show', $event->id) }}"><img src="img/event1.png" alt="" class="w-full"></a>
+                        <a href="{{ route('event.show', $event->id) }}"><img src="{{ asset('storage/' . $event->image) }}" alt="" class="w-full"></a>
 
                     </div>
                     <div>

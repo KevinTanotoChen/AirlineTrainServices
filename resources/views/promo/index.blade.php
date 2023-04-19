@@ -32,7 +32,7 @@
         <div class="grid grid-cols-3 justify-items-center mt-10 mb-10">
             @foreach ($promotions as $promo)
                 <div class="grid grid-cols-1 p-4 justify-items-center">
-                    <a href="{{ route('promo.show', $promo->id) }}"><img src="img/promo1.png" alt="" class="w-full"></a>
+                    <a href="{{ route('promo.show', $promo->id) }}"><img src="{{ asset('storage/' . $promo->image) }}" alt="" class="w-full"></a>
                     <a href="{{ route('promo.show', $promo->id) }}"><p class="text-2xl text-center font-bold">{{ $promo->title }}</p></a>
                 </div>
             @endforeach
