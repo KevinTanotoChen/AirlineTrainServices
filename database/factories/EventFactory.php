@@ -19,7 +19,8 @@ class EventFactory extends Factory
         return [
             'title' => fake()->words(3, true),
             'excerpt' => fake()->sentence(),
-            'content' => fake()->paragraph(2)
+            'content' => fake()->paragraph(2),
+            'image' => fake()->randomElement(['/event-images/event1.png','/event-images/event2.png','/event-images/event3.png','/event-images/event3.png'])
         ];
     }
 }

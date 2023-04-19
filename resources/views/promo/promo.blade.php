@@ -8,7 +8,7 @@
 
             <div class="flex flex-col">
                 <div class="flex-1">
-                    <img src="{{ asset('img/promo1.png') }}" alt="" style="height: 15rem; width: 100%" >
+                    <img src="{{ asset('storage/' . $promo->image) }}" alt="" style="height: 15rem; width: 100%" >
                 </div>
                 <div>
 
@@ -21,6 +21,14 @@
 
                     {{ $promo->content }}
 
+                </div>
+
+                <div>
+                    Promo Code: {{ $promo->code }}
+                </div>
+
+                <div>
+                    Promo Discount: {{ $promo->discount_price }}
                 </div>
 
             </div>
