@@ -53,6 +53,8 @@
 
 </style>
 
+
+
 <div class="flex flex-col">
     <div class="flex-1 h-1/2">
 
@@ -155,10 +157,12 @@
                         Check Our Promotion <br> For Lower Price
                     </p>
                     <button class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded mt-5 text-lg">
-                        Check All Promotion
+                        <a href="/promo">Check All Promotion</a>
                     </button>
                 </div>
             </div>
+
+            {{-- js slider --}}
             <div class="flex-1">
                 <div class="box-content rounded-xl bg-white p-4 h-56 flex items-center border shadow-md hover:shadow-lg">
 
@@ -185,71 +189,52 @@
         </div>      
     </div>
 
-    <div class="flex-1 mx-20 mt-10  ">
-        <span class="text-2xl font-bold"> News & Event</span>
-        <p>
-            Rencana ke Singapura, Malaysia, atau Thailand? Nginep di hotel ini, diskon hingga 70%+IDR 325rb!
-        </p>
+    
+    <div class="flex justify-between mx-20 mt-10">
+        <div class="">
+            <span class="text-2xl font-bold"> News & Event</span>
+            <p>
+                Rencana ke Singapura, Malaysia, atau Thailand? Nginep di hotel ini, diskon hingga 70%+IDR 325rb!
+            </p>
+        </div>
+    
+        <div class="">
+            <button class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded mt-5 text-lg">
+                <a href="/event">Check All News & Events</a>
+            </button>
+        </div>
+
     </div>
 
     <div class="flex-1 mx-20">
 
-        <div class="flex mt-5 space-x-6">
-            <div class="flex-1">        
-                <div class="box-content rounded-xl bg-white border h-96 shadow-md hover:shadow-lg mb-10">
-                    <div class="flex-col">
-                        <div class="flex-1">
-                            <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
+        
+        <div class="flex justify-between mt-5 space-x-6">
+            @foreach ($events as $event)
+                <a href="{{ route('event.show', $event->id) }}">
+                    <div class="flex-1">        
+                        <div class="box-content rounded-xl bg-white border h-96 shadow-md hover:shadow-lg mb-10">
+                            <div class="flex-col">
+                                <div class="flex-1">
+                                    <img src="{{ asset('storage/' . $event->image) }}" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
+                                </div>
+                                <div class="flex-1 p-4 text-center">
+                                    <h3 class="font-semibold"> {{ $event->title }} </h3>
+                                    <p>
+                                        {{ $event->excerpt }}
+                                    </p>
+                                </div>
+                            </div>     
                         </div>
-                        <div class="flex-1 p-4 text-center">
-                            <h3 class="font-semibold"> Lorem Ipsum </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>     
-                </div>
-            </div>
-            <div class="flex-1">
-                <div class="box-content rounded-xl bg-white border h-96 shadow-md hover:shadow-lg mb-10">
-                    
-                    <div class="flex-col">
-                        <div class="flex-1">
-                            <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
-                        </div>
-                        <div class="flex-1 p-4 text-center">
-                            <h3 class="font-semibold"> Lorem Ipsum </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>  
-
-
-                </div>
-            </div>
-            <div class="flex-1">
-                <div class="box-content rounded-xl bg-white border  h-96 shadow-md hover:shadow-lg mb-10">
-                    
-                    <div class="flex-col">
-                        <div class="flex-1">
-                            <img src="img/home-news1.jpg" alt="" style="height: 15rem; width: 100%; border-radius: 5px 5px 0px 0px" >
-                        </div>
-                        <div class="flex-1 p-4 text-center">
-                            <h3 class="font-semibold"> Lorem Ipsum </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>  
-
-
-                </div>
-            </div>
+                    </div>      
+                </a>
+            @endforeach
+            
 
         </div>
     </div>
 </div>
+
     
 <script>
     
