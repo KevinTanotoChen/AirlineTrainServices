@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Promotion;
 use App\Models\Schedule;
 use App\Models\Station;
 use Illuminate\Http\Request;
@@ -19,7 +21,9 @@ class HomeController extends Controller
 
         return view('home', [
             'title' => 'Home',
-            'stations'=> Station::all()
+            'stations'=> Station::all(),
+            'events' => Event::latest()->take(3)->get(),
+            'promos' => Promotion::all()
         ]);
     }
 
@@ -155,5 +159,6 @@ class HomeController extends Controller
         return view('/srp/index', compact('schedules'));
         
     }
+
 }
 
