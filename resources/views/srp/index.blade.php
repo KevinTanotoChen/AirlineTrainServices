@@ -72,7 +72,7 @@
                                     <td>{{ $schedule->arrival_time }}</td>
                                     {{-- <td>{{ $schedule->origin_station_id }}</td>
                                     <td>{{ $schedule->destination_station_id }}</td> --}}
-                                    <td>{{ $schedule->train->total_seat}}</td>
+                                    <td>{{ $schedule->total_seat}}</td>
                                     <td>10000</td>
                                     <td>
                                         <div class="my-2">
