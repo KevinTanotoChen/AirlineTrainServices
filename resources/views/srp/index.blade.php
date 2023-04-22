@@ -38,7 +38,6 @@
     
     <div class="flex-1 mb-10">
 
-            
             <a href="/" class="bg-red-400 duration-500 px-5 py-2 hover:bg-red-300 rounded text-lg mx-24">
                 Back to find ticket
             </a>   
