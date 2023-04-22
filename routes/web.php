@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SrpController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionDashboardController;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ use Illuminate\Http\Request;
 */
 
 Route::resource('/', HomeController::class);
+
+Route::post('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/register', [RegisterController::class, 'show'])->middleware('guest');
 
@@ -43,14 +46,12 @@ Route::resource('/schedule', ScheduleController::class);
 
 Route::resource('/srp', SrpController::class);
 
-Route::post('/search', [HomeController::class, 'search'])->name('search');
+Route::resource('/transaction', TransactionController::class);
+
+Route::get('/dashboard', [DashboardController::class,'index']);
 
 Route::get('/aboutus', function () {
     return view('aboutus');
-});
-
-Route::get('/transaction', function () {
-    return view('transaction');
 });
 
 Route::prefix('dashboard')->group(function () {

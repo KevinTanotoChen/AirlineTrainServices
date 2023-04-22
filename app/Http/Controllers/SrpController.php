@@ -14,11 +14,11 @@ class SrpController extends Controller
      */
     public function index()
     {
-        $schedules = Schedule::with('train')->get();
+        // $schedules = Schedule::with('train')->get();
 
         return view('/srp/index',[
             "title" => "Search Result",
-            "schedules" => $schedules
+            "schedules" => Schedule::all()
         ]);
     }
 

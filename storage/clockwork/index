@@ -75,6 +75,7 @@
 1682176990-7815-1957659509,1682176990.6882,GET,/dashboard/js/jquery-3.6.0.js,,404,179.73399162292,request
 1682176991-7207-1861922036,1682176991.6415,GET,/dashboard/transaction,"App\Http\Controllers\TransactionDashboardController@index",200,173.82907867432,request
 1682176992-0939-1441513711,1682176992.0066,GET,/dashboard/js/jquery-3.6.0.js,,404,147.77493476868,request
+<<<<<<< Updated upstream
 1682187216-7879-1959304485,1682187216.6787,GET,/dashboard/transaction,"App\Http\Controllers\TransactionDashboardController@index",200,246.15883827209,request
 1682187217-0355-1627645573,1682187216.9383,GET,/dashboard/js/jquery-3.6.0.js,,404,174.43704605103,request
 1682187218-1337-1976143611,1682187218.053,GET,/dashboard,"App\Http\Controllers\DashboardController@index",200,145.40791511536,request
@@ -82,3 +83,31 @@
 1682187223-3749-151837138,1682187223.288,GET,/,"App\Http\Controllers\HomeController@index",200,197.42608070374,request
 1682187228-6150-998982203,1682187228.5301,POST,/search,"App\Http\Controllers\HomeController@search",200,239.18604850769,request
 1682187232-0645-2105064263,1682187231.9849,GET,/,"App\Http\Controllers\HomeController@index",200,180.83500862122,request
+=======
+1682186939-9839-242958504,1682186939.8278,GET,/,"App\Http\Controllers\HomeController@index",200,2376.4970302582,request
+1682186948-3481-1303415544,1682186948.2403,POST,/search,"App\Http\Controllers\HomeController@search",200,349.19905662537,request
+1682186949-8965-1415281133,1682186949.8126,GET,/transaction,"App\Http\Controllers\TransactionController@index",200,165.6448841095,request
+1682186953-0068-2050817230,1682186952.9255,GET,/,"App\Http\Controllers\HomeController@index",200,162.24098205566,request
+1682186969-1080-15871990,1682186969.0187,GET,/dashboard,"App\Http\Controllers\DashboardController@index",200,207.09919929504,request
+1682186970-5550-1834450368,1682186970.4706,GET,/dashboard/transaction,"App\Http\Controllers\TransactionDashboardController@index",200,301.45716667175,request
+1682186970-8716-1099576483,1682186970.7928,GET,/dashboard/js/jquery-3.6.0.js,,404,340.32702445984,request
+1682186971-7700-1485339203,1682186971.689,GET,/dashboard/news-event,Closure,200,170.3770160675,request
+1682186971-9721-1795979543,1682186971.8802,GET,/dashboard/js/jquery-3.6.0.js,,404,166.88513755798,request
+1682186972-6952-1042641286,1682186972.612,GET,/dashboard/promotion,Closure,200,160.29691696167,request
+1682186972-8860-815568619,1682186972.7939,GET,/dashboard/js/jquery-3.6.0.js,,404,164.33215141296,request
+1682186973-6646-1890913614,1682186973.5877,GET,/dashboard/transaction,"App\Http\Controllers\TransactionDashboardController@index",200,171.52094841003,request
+1682186973-8624-1296445990,1682186973.7777,GET,/dashboard/js/jquery-3.6.0.js,,404,148.16403388977,request
+>>>>>>> Stashed changes
+1682187368-8342-286721764,1682187368.721,GET,/,"App\Http\Controllers\HomeController@index",200,241.40000343323,request
+1682187370-2024-2023140808,1682187370.1191,GET,/,"App\Http\Controllers\HomeController@index",200,213.38486671448,request
+1682187373-4933-1025202338,1682187373.3904,POST,/search,"App\Http\Controllers\HomeController@search",200,234.03310775757,request
+1682187379-2718-790160827,1682187379.1913,GET,/transaction,"App\Http\Controllers\TransactionController@index",200,161.45300865173,request
+1682187381-4084-1217258965,1682187381.3265,GET,/,"App\Http\Controllers\HomeController@index",200,176.51295661926,request
+1682187384-3362-1802093113,1682187384.2543,GET,/dashboard,"App\Http\Controllers\DashboardController@index",200,148.81706237793,request
+1682187385-5168-1329179968,1682187385.4367,GET,/dashboard/news-event,Closure,200,145.1780796051,request
+1682187385-6930-1045832237,1682187385.6059,GET,/dashboard/js/jquery-3.6.0.js,,404,156.41283988953,request
+1682187386-3344-678187086,1682187386.2529,GET,/dashboard/promotion,Closure,200,145.33805847168,request
+1682187386-5514-239359643,1682187386.4251,GET,/dashboard/js/jquery-3.6.0.js,,404,201.80296897888,request
+1682187386-9505-1540425916,1682187386.8678,GET,/dashboard/transaction,"App\Http\Controllers\TransactionDashboardController@index",200,166.78404808044,request
+1682187387-1539-650253645,1682187387.0538,GET,/dashboard/js/jquery-3.6.0.js,,404,166.90707206726,request
+1682187388-3150-1819302784,1682187388.2348,GET,/dashboard,"App\Http\Controllers\DashboardController@index",200,143.59903335571,request
