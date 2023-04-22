@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SrpController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionDashboardController;
 use Illuminate\Http\Request;
 
 /*
@@ -52,14 +53,15 @@ Route::get('/transaction', function () {
     return view('transaction');
 });
 
-Route::get('/dashboard', [DashboardController::class,'index']);
-
-Route::get('/load/{id}', function ($id) {
-    if ($id == 'transaction-link') {
-        return view('dashboard.transaction');
-    } else if ($id == 'news-link') {
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index']);
+    Route::resource('/transaction', TransactionDashboardController::class);
+    // Route::resource('/news-event', TransactionDashboardController::class);
+    Route::get('/news-event', function () {
         return view('dashboard.event');
-    } else if ($id == 'promotion-link') {
+    });
+    // Route::resource('/promotion', TransactionDashboardController::class);
+    Route::get('/promotion', function () {
         return view('dashboard.promotion');
-    }
+    });
 });
