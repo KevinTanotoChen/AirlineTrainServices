@@ -18,44 +18,56 @@
       <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
         <table class="w-full border-collapse">
             <thead class="text-left">
-            <tr>
-                <th class="border-b-2 border-gray-200 px-4 py-2">#</th>
-                <th class="border-b-2 border-gray-200 px-4 py-2">Title</th>
-                <th class="border-b-2 border-gray-200 px-4 py-2">Content</th>
-                <th class="border-b-2 border-gray-200 px-4 py-2">Image</th>
-                <th class="border-b-2 border-gray-200 px-4 py-2"></th>
-            </tr>
+                <tr>
+                    <th class="border-b-2 border-gray-200 px-4 py-2">ID</th>
+                    <th class="border-b-2 border-gray-200 px-4 py-2">Title</th>
+                    <th class="border-b-2 border-gray-200 px-4 py-2">Content</th>
+                    <th class="border-b-2 border-gray-200 px-4 py-2">Image</th>
+                    <th class="border-b-2 border-gray-200 px-4 py-2"></th>
+                </tr>
             </thead>
+
             <tbody>
-            <tr>
-                <td class="border-b border-gray-200 px-4 py-2">1</td>
-                <td class="border-b border-gray-200 px-4 py-2">lorem</td>
-                <td class="border-b border-gray-200 px-4 py-2">john@example.com</td>
-                <td class="border-b border-gray-200 px-4 py-2">*kasih liat imagenya*</td>
-                <td class="border-b border-gray-200 px-4 py-2">
+                @foreach ($events as $event)
+                    <tr>
 
-                    <div class="flex flex-row justify-center space-x-2">
+                        <td class="border-b border-gray-200 px-4 py-2">{{ $event->id }}</td>
+                        <td class="border-b border-gray-200 px-4 py-2">{{ $event->title }}</td>
+                        <td class="border-b border-gray-200 px-4 py-2">{{ $event->content }}</td>
+                        <td class="border-b border-gray-200 px-4 py-2">{{ $event->image }}</td>
+                        <td class="border-b border-gray-200 px-4 py-2">
 
-                        <div>
-                            <div class="my-1">
-                                <a href="/transaction" class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded">
-                                    Update
-                                </a>
+                            <div class="flex flex-row justify-center space-x-2">
+
+                                <div>
+                                    <div class="my-1">
+                                        <form id="update-news-event-form" action="{{ route('news-event.update', $event->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            {{-- <input type="text" name="title" value="{{ $event->title }}" />
+                                            <textarea name="content">{{ $event->content }}</textarea>
+                                            <input type="text" name="image" value="{{ $event->image }}" /> --}}
+                                            <button class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded" type="submit" onclick="return confirm('Are you sure you want to update this news event?')">Update</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="my-1">
+                                        <form id="delete-news-event-form" action="{{ route('news-event.destroy', $event->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded" type="submit" onclick="return confirm('Are you sure you want to delete this news event?')">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="my-1">
-                                <a href="/transaction" class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded">
-                                    Delete
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                </td>
-            </tr>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
+        {{ $events->links() }}
     </div>
 </div>
 @endsection

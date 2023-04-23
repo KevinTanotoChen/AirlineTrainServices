@@ -19,7 +19,7 @@
       <table class="w-full border-collapse">
         <thead class="text-left">
           <tr>
-            <th class="border-b-2 border-gray-200 px-4 py-2">#</th>
+            <th class="border-b-2 border-gray-200 px-4 py-2">ID</th>
             <th class="border-b-2 border-gray-200 px-4 py-2">User Id</th>
             <th class="border-b-2 border-gray-200 px-4 py-2">Ticket Id</th>
             <th class="border-b-2 border-gray-200 px-4 py-2">Promotion Id</th>

@@ -9,8 +9,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SrpController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NewsEventDashboardController;
 use App\Http\Controllers\TransactionDashboardController;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,10 +56,7 @@ Route::get('/transaction', function () {
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/transaction', TransactionDashboardController::class);
-    // Route::resource('/news-event', TransactionDashboardController::class);
-    Route::get('/news-event', function () {
-        return view('dashboard.event');
-    });
+    Route::resource('/news-event', NewsEventDashboardController::class);
     // Route::resource('/promotion', TransactionDashboardController::class);
     Route::get('/promotion', function () {
         return view('dashboard.promotion');
