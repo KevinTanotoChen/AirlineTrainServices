@@ -39,6 +39,8 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::resource('/promo', PromotionController::class);
+Route::post('/promo', [PromotionController::class,'store'])->name('promo-store');
+Route::delete('/promo', [PromotionController::class,'destroy'])->name('promo-destroy');
 
 Route::resource('/event', EventController::class);
 
@@ -46,7 +48,11 @@ Route::resource('/schedule', ScheduleController::class);
 
 Route::resource('/srp', SrpController::class);
 
+Route::get('/transaction/details', [TransactionController::class,'details_redirect'])->name('transaction-details-redirect');
+Route::post('/transaction/details', [TransactionController::class,'details'])->name('transaction-details');
+
 Route::resource('/transaction', TransactionController::class);
+
 
 Route::get('/dashboard', [DashboardController::class,'index']);
 

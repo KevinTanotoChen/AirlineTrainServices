@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Event::factory(6)->create();
         \App\Models\Promotion::factory(6)->create();
         \App\Models\Ticket::factory(30)->create();
+        $this->call(SchedulesSeeder::class);
     }
 }
