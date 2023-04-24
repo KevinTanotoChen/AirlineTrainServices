@@ -161,8 +161,10 @@ class HomeController extends Controller
                 ->get();
         }
 
-        return view('/srp/index', compact('schedules'));
-        
+        // return view('/srp/index', compact('schedules'));
+        return view('/srp/index', [
+            'schedules' => $schedules
+        ]);
     }
 
 }
