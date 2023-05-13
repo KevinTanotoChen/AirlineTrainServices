@@ -18,7 +18,7 @@ class Transaction extends Model
     }
 
     public function ticket(){
-        return $this->hasMany(Ticket::class);
+        return $this->hasOne(Ticket::class);
     }
 
     public function promo(){

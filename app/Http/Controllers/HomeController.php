@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\Promotion;
-use App\Models\Schedule;
 use App\Models\Station;
+use App\Models\Schedule;
+use App\Models\Promotion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

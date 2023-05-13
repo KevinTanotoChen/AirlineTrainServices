@@ -73,6 +73,8 @@
                                     <input type="hidden" name="price" id="price" value="10000">
                                     <input type="hidden" name="seat_order" id="seat_order" value="{{ $_POST['passengers'] }}">
                                     <input type="hidden" name="date" id="date" value="{{ $_POST['date'] }}">
+                                    <input type="hidden" name="origin_station" id="origin_station" value="{{ $_POST['origin_station'] }}">
+                                    <input type="hidden" name="destination_station" id="destination_station" value="{{ $_POST['destination_station'] }}">
                                     <tr class="border-b">
                                         <td>{{ $schedule->train_id }}</td>
                                         <td>{{ $schedule->departure_time }}</td>

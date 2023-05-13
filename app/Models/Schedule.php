@@ -13,9 +13,9 @@ class Schedule extends Model
         'id'
     ];
 
-    public function tickets(){
-        return $this->hasMany(Ticket::class);
-    }
+    // public function tickets(){
+    //     return $this->hasMany(Ticket::class);
+    // }
 
     public function train(){
         return $this->belongsTo(Train::class);

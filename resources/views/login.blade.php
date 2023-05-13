@@ -26,6 +26,10 @@
     <div class="box-content rounded-xl bg-white bg-opacity-50 border mt-10 mb-10 p-4 h-[400px] w-[280px] shadow-md hover:shadow-lg">
         <form action="/login" method="POST" class="grid grid-cols-1 justify-items-center">
             @csrf
+
+            <input type="hidden" name="url" id="url" value="{{ URL::previous() }}">
+            <input type="hidden" name="url_next" id="url_next" value="{{ route('login') }}">
+
             <p class="text-2xl text-center font-semibold mb-10">
                 Login
             </p>
