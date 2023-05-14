@@ -26,13 +26,13 @@ use Illuminate\Http\Request;
 
 Route::resource('/', HomeController::class);
 
-Route::post('/search', [HomeController::class, 'search'])->name('search');
+Route::post('/search', [HomeController::class, 'search'])->name('search')->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'show'])->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'show'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 
