@@ -12,20 +12,33 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
+        $end_station = $request['end_station_id'];
 
-        $trainIds_right = [1, 2, 3]; 
-        $trainIds_left = [4, 5, 6]; 
-        $originStationIds = [1, 2, 3, 4];
-
-        $schedules_right = Schedule::whereIn('train_id', $trainIds_right)
-                            ->whereIn('origin_station_id', $originStationIds)
-                            ->get();
-
+        if($end_station == 1){
+            $schedules = Schedule::where('end_station_id', 1)
+                ->orderBy('departure_time')
+                ->get();
+            $stations = $schedules
+            ->sortBy('origin_station_id')
+            ->pluck('origin_station_id')
+            ->unique();
+        }
+        else{
+            $schedules = Schedule::where('end_station_id', 4)
+                ->orderBy('departure_time')
+                ->get();
+            $stations = $schedules
+            ->sortBy('origin_station_id')
+            ->pluck('origin_station_id')
+            ->unique();
+        }
         return view('/schedule/index',[
             "title" => "Schedules",
-            'schedules_right' => $schedules_right
+            "schedules" => $schedules,
+            "end_station" => $end_station,
+            "stations" => $stations
         ]);
 
     }

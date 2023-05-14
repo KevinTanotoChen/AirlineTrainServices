@@ -38,7 +38,6 @@
     
     <div class="flex-1 mb-10">
 
-            
             <a href="/" class="bg-red-400 duration-500 px-5 py-2 hover:bg-red-300 rounded text-lg mx-24">
                 Back to find ticket
             </a>   
@@ -65,24 +64,30 @@
                         </thead>
                         <tbody class="text-center">
                             @foreach ($schedules as $schedule)
-
-                                <tr class="border-b">
-                                    <td>{{ $schedule->train_id }}</td>
-                                    <td>{{ $schedule->departure_time }}</td>
-                                    <td>{{ $schedule->arrival_time }}</td>
-                                    {{-- <td>{{ $schedule->origin_station_id }}</td>
-                                    <td>{{ $schedule->destination_station_id }}</td> --}}
-                                    <td>{{ $schedule->train->total_seat}}</td>
-                                    <td>10000</td>
-                                    <td>
-                                        <div class="my-2">
-                                            <a href="/transaction" class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded">
-                                                Select
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
+                                <form action="/transaction/details" method="post">
+                                    @csrf
+                                    <input type="hidden" name="train_id" id="train_id" value="{{ $schedule->train_id }}">
+                                    <input type="hidden" name="departure_time" id="departure_time" value="{{ $schedule->departure_time }}">
+                                    <input type="hidden" name="arrival_time" id="arrival_time" value="{{ $schedule->arrival_time }}">
+                                    <input type="hidden" name="total_seat" id="total_seat" value="{{ $schedule->total_seat }}">
+                                    <input type="hidden" name="price" id="price" value="10000">
+                                    <input type="hidden" name="seat_order" id="seat_order" value="{{ $_POST['passengers'] }}">
+                                    <input type="hidden" name="date" id="date" value="{{ $_POST['date'] }}">
+                                    <input type="hidden" name="origin_station" id="origin_station" value="{{ $_POST['origin_station'] }}">
+                                    <input type="hidden" name="destination_station" id="destination_station" value="{{ $_POST['destination_station'] }}">
+                                    <tr class="border-b">
+                                        <td>{{ $schedule->train_id }}</td>
+                                        <td>{{ $schedule->departure_time }}</td>
+                                        <td>{{ $schedule->arrival_time }}</td>
+                                        <td>{{ $schedule->total_seat}}</td>
+                                        <td>10000</td>
+                                        <td>
+                                            <div class="my-2">
+                                                <button class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded">Select</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </form>
                             @endforeach
                           
                         </tbody>

@@ -38,7 +38,21 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $promo = Promotion::where('code', $request->promo_code)->first();
+        // dd($promo);
+
+        if (!$promo) {
+            return redirect()->route('transaction-details-redirect')->with('error_code', 'invalid code');
+            // return redirect()->route('transaction-details-redirect')->withErrors(['msg' => 'invalid code']);
+        }
+
+        session()->put('promo', [
+            'code' => $promo->code,
+            'discount' => $promo->discount_price,
+            'promo_id' => $promo->id
+        ]);
+
+        return redirect()->route('transaction-details-redirect')->with('success_message', 'Promo is applied');
     }
 
     /**
@@ -88,6 +102,7 @@ class PromotionController extends Controller
      */
     public function destroy(Promotion $promotion)
     {
-        //
+        session()->forget('promo');
+        return redirect()->route('transaction-details-redirect')->with('success_message', 'Promo is removed');
     }
 }

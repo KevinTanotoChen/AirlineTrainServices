@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('schedule_id');
+            // $table->foreignId('schedule_id');
+            $table->foreignId('origin_station_id');
+            $table->foreignId('destination_station_id');
             $table->timestamps();
         });
     }

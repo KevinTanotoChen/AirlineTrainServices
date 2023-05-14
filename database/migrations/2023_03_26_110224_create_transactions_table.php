@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('payment_type');
             $table->foreignId('user_id');
             $table->foreignId('ticket_id');
-            $table->foreignId('promotion_id');
+            $table->foreignId('promotion_id')->nullable();
             $table->timestamps();
         });
     }

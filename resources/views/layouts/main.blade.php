@@ -43,6 +43,16 @@
                     </button>
                 </form>
             @else
+                {{-- <form action="/login">
+                    <input type="hidden" name="train_id" id="train_id" value="{{  Form::hidden('url',URL::previous())  }}">
+                    <button type="submit" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
+                        Login
+                    </button>
+                </form>
+                
+                <a href="/register" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded my-6 md:my-0">
+                    Register
+                </a> --}}
                 <a href="/login" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
                     Login
                 </a>

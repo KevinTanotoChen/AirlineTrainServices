@@ -13,9 +13,12 @@
                 <div>
 
                     <h1 class="text-2xl font-bold">
-                        {{ $event->title}}
+                        {{ $event->title}} 
                     </h1>
 
+                </div>
+                <div>
+                    AirlineTrainService : <small class="text-sm">{{$event->created_at}}</small>
                 </div>
                 <div>
 

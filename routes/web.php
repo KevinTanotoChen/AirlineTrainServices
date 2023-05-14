@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SrpController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\NewsEventDashboardController;
 use App\Http\Controllers\TransactionDashboardController;
 
@@ -25,17 +26,21 @@ use App\Http\Controllers\TransactionDashboardController;
 
 Route::resource('/', HomeController::class);
 
+Route::post('/search', [HomeController::class, 'search'])->name('search')->middleware('auth');
+
 Route::get('/register', [RegisterController::class, 'show'])->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'show'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::resource('/promo', PromotionController::class);
+Route::post('/promo', [PromotionController::class,'store'])->name('promo-store');
+Route::delete('/promo', [PromotionController::class,'destroy'])->name('promo-destroy');
 
 Route::resource('/event', EventController::class);
 
@@ -43,14 +48,16 @@ Route::resource('/schedule', ScheduleController::class);
 
 Route::resource('/srp', SrpController::class);
 
-Route::post('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/transaction/details', [TransactionController::class,'details_redirect'])->name('transaction-details-redirect');
+Route::post('/transaction/details', [TransactionController::class,'details'])->name('transaction-details');
+
+Route::resource('/transaction', TransactionController::class);
+
+
+Route::get('/dashboard', [DashboardController::class,'index']);
 
 Route::get('/aboutus', function () {
     return view('aboutus');
-});
-
-Route::get('/transaction', function () {
-    return view('transaction');
 });
 
 Route::prefix('dashboard')->group(function () {
