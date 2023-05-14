@@ -60,7 +60,7 @@ class NewsEventDashboardController extends Controller
     {
         // TODO: need to integrate with FE (overlay component), change the view with the edit
         $event = Event::find($id);
-        return view('events.edit', ['event' => $event]);
+        return view('dashboard.eventCreateUpdate', ['event' => $event]);
     }
 
     /**
@@ -81,10 +81,16 @@ class NewsEventDashboardController extends Controller
         $event = Event::find($id);
         $event->title = $validatedData['title'];
         $event->content = $validatedData['content'];
-        $event->image = $validatedData['image'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/event-images'), $imageName);
+            $event->image = '/event-images/' . $imageName;
+        }
         $event->save();
 
         return redirect('/dashboard/news-event')->with('Success', 'Successfully updated!');
+        dd();
     }
 
     /**

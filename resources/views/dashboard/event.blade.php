@@ -41,13 +41,8 @@
 
                                 <div>
                                     <div class="my-1">
-                                        <form id="update-news-event-form" action="{{ route('news-event.update', $event->id) }}" method="POST">
-                                            @csrf
-                                            @method('PUT')
-                                            {{-- <input type="text" name="title" value="{{ $event->title }}" />
-                                            <textarea name="content">{{ $event->content }}</textarea>
-                                            <input type="text" name="image" value="{{ $event->image }}" /> --}}
-                                            <button class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded" type="submit" onclick="return confirm('Are you sure you want to update this news event?')">Update</button>
+                                        <form id="update-news-event-form" action="{{ route('news-event.edit', $event->id) }}">
+                                            <button class="bg-red-400 duration-500 px-3 py-1 hover:bg-red-300 rounded" type="submit">Update</button>
                                         </form>
                                     </div>
                                 </div>
@@ -71,3 +66,21 @@
     </div>
 </div>
 @endsection
+
+<script>
+    document.querySelector('#update-news-event-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        let form = event.target;
+        let formData = new FormData(form);
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // handle response data
+        })
+        .catch(error => console.error(error));
+    });
+</script>
