@@ -43,8 +43,6 @@ class NewsEventDashboardController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imagePath = $validatedData['image']->store('/event-images');
-
         $event = new Event;
         $event->title = $validatedData['title'];
         $event->content = $validatedData['content'];
@@ -80,7 +78,6 @@ class NewsEventDashboardController extends Controller
      */
     public function edit($id)
     {
-        // TODO: need to integrate with FE (overlay component), change the view with the edit
         $event = Event::find($id);
         return view('dashboard.eventUpdate', ['event' => $event]);
     }
