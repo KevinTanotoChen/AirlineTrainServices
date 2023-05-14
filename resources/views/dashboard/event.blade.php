@@ -24,7 +24,7 @@
     </div>
     <!-- Main Content -->
     <div class="w-4/5 bg-gray-100 p-4" id="content">
-      <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
+      <h1 class="text-3xl font-semibold mb-4">News & Event</h1>
       <form id="create-news-event-form" action="{{ route('news-event.create') }}">
         <button type="submit" class="bg-red-400 duration-500 px-4 py-2 hover:bg-red-300 rounded" style="margin-bottom:10px;">Add New News & Event</button>
       </form>
