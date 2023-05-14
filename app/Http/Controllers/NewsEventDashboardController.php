@@ -14,7 +14,7 @@ class NewsEventDashboardController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::paginate(10, ['*'], 'page', $request->query('page', 1));
+        $events = Event::paginate(6, ['*'], 'page', $request->query('page', 1));
         return view('dashboard.event', ['events' => $events]);
     }
 
@@ -25,7 +25,7 @@ class NewsEventDashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.eventCreate');
     }
 
     /**
@@ -36,7 +36,29 @@ class NewsEventDashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'excerpt' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imagePath = $validatedData['image']->store('/event-images');
+
+        $event = new Event;
+        $event->title = $validatedData['title'];
+        $event->content = $validatedData['content'];
+        $event->excerpt = $validatedData['excerpt'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/event-images'), $imageName);
+            $event->image = '/event-images/' . $imageName;
+        }
+        $event->save();
+
+        return redirect('/dashboard/news-event')->with('success', 'Event created successfully!');
+    
     }
 
     /**
@@ -60,7 +82,7 @@ class NewsEventDashboardController extends Controller
     {
         // TODO: need to integrate with FE (overlay component), change the view with the edit
         $event = Event::find($id);
-        return view('dashboard.eventCreateUpdate', ['event' => $event]);
+        return view('dashboard.eventUpdate', ['event' => $event]);
     }
 
     /**
@@ -75,7 +97,7 @@ class NewsEventDashboardController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'required'            
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $event = Event::find($id);

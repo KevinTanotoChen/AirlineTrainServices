@@ -1,6 +1,15 @@
 @extends('layouts.adminMain')
 
 @section('container')
+<style>
+    .product-image {
+        margin-bottom: 10px;
+        width: 7em;
+        height: 7em;
+        border: 1px solid #000000;
+    }
+</style>
+
 <div class="flex h-screen bg-gray-100">
     <!-- Sidebar -->
     <div class="w-1/6 bg-white">
@@ -16,6 +25,9 @@
     <!-- Main Content -->
     <div class="w-4/5 bg-gray-100 p-4" id="content">
       <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
+      <form id="create-news-event-form" action="{{ route('news-event.create') }}">
+        <button type="submit" class="bg-red-400 duration-500 px-4 py-2 hover:bg-red-300 rounded" style="margin-bottom:10px;">Add New News & Event</button>
+      </form>
         <table class="w-full border-collapse">
             <thead class="text-left">
                 <tr>
@@ -34,7 +46,9 @@
                         <td class="border-b border-gray-200 px-4 py-2">{{ $event->id }}</td>
                         <td class="border-b border-gray-200 px-4 py-2">{{ $event->title }}</td>
                         <td class="border-b border-gray-200 px-4 py-2">{{ $event->content }}</td>
-                        <td class="border-b border-gray-200 px-4 py-2">{{ $event->image }}</td>
+                        <td class="border-b border-gray-200 px-4 py-2">
+                            <img src="{{ asset($event->image) }}" alt="News Image" class="product-image">
+                        </td>
                         <td class="border-b border-gray-200 px-4 py-2">
 
                             <div class="flex flex-row justify-center space-x-2">

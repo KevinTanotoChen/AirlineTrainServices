@@ -28,13 +28,13 @@
     <div class="container mx-auto mt-10">
         <div class="w-full max-w-lg">
             <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <div class="card-header font-bold text-xl mb-6">{{ __('Edit News Event') }}</div>
-                <form method="POST" action="{{ route('news-event.update', $event->id) }}" enctype="multipart/form-data">
+                <div class="card-header font-bold text-xl mb-6">{{ __('Create News Event') }}</div>
+                <form method="POST" action="{{ route('news-event.store') }}" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
+                    @method('POST')
                     <div class="mb-4">
                         <label for="title" class="block text-gray-700 font-bold mb-2">{{ __('Title') }}</label>
-                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $event->title }}" required autocomplete="title" autofocus>
+                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" required autocomplete="title" autofocus style="border: 1px solid #000000;">
     
                         @error('title')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -45,7 +45,7 @@
     
                     <div class="mb-4">
                         <label for="content" class="block text-gray-700 font-bold mb-2">{{ __('Content') }}</label>
-                        <textarea id="content" class="form-control @error('content') is-invalid @enderror" name="content" rows="6" required>{{ $event->content }}</textarea>
+                        <textarea id="content" class="form-control @error('content') is-invalid @enderror" name="content" rows="6" required style="border: 1px solid #000000;"></textarea>
     
                         @error('content')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -53,10 +53,18 @@
                             </p>
                         @enderror
                     </div>
-    
+
                     <div class="mb-4">
-                        <img src="{{ asset($event->image) }}" alt="News Image" class="product-image">
+                        <label for="excerpt" class="block text-gray-700 font-bold mb-2">{{ __('Excerpt') }}</label>
+                        <textarea id="excerpt" class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" rows="6" required style="border: 1px solid #000000;"></textarea>
+    
+                        @error('excerpt')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
+    
                     <div class="mb-4">
                         <label for="image" class="block text-gray-700 font-bold mb-2">{{ __('Image') }}</label>
                         <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" accept="image/*">
@@ -70,7 +78,7 @@
 
                     <div class="flex items-center justify-between">
                         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            {{ __('Edit') }}
+                            {{ __('Create') }}
                         </button>
                     </div>
                 </form>
