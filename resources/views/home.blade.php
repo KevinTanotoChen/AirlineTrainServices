@@ -145,7 +145,10 @@
                                         </div>
                                         <div class="mt-11">
                                             <button type="submit"
-                                                class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg">
+                                                class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg"
+                                                @error('destination_station')
+                                                    onclick="myFunction()"
+                                                @enderror>
                                                 Find Ticket
                                             </button>
                                         </div>
@@ -245,8 +248,6 @@
             </div>
         </div>
     </div>
-
-
     <script>
         $(function() {
 
@@ -280,5 +281,8 @@
                 }
             });
         });
+        function myFunction() {
+            alert("Destination Station should be different with Origin Station");
+        }
     </script>
 @endsection

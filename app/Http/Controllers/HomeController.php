@@ -95,9 +95,16 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $origin_station = $request->input('origin_station');
-        $destination_station = $request->input('destination_station');
-        
+        $validated_input = $request->validate([
+            'origin_station' => 'required',
+            'destination_station' => 'required|different:origin_station'
+        ]);
+
+        $origin_station = $validated_input['origin_station'];
+        $destination_station = $validated_input['destination_station'];
+        // $origin_station = $request->input('origin_station');
+        // $destination_station = $request->input('destination_station');  
+
         if($origin_station < $destination_station){
             $end_station = 4;
         }
