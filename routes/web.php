@@ -66,4 +66,4 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('/transaction', TransactionDashboardController::class);
     Route::resource('/news-event', NewsEventDashboardController::class);
     Route::resource('/promotion', PromotionDashboardController::class);
-});
+})->middleware('admin');
