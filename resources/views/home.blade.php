@@ -78,8 +78,8 @@
 
                                         <div class="inline-block relative w-5/6">
                                             <select class="appearance-none px-4 py-1 w-full rounded text-gray-500"
-                                                name="origin_station" required>
-                                                <option value="">Select Origin Station</option>
+                                                name="origin_station">
+                                                <option>Select Origin Station</option>
                                                 @foreach ($stations as $station)
                                                     <option value="{{ $station->id }}">Station {{ $station->id }}</option>
                                                 @endforeach
@@ -98,7 +98,7 @@
                                                 <i class="fa-regular fa-calendar"></i>
                                             </div>
                                             <input datepicker type="text" class="rounded block w-5/6 pl-9 px-4 py-1"
-                                                placeholder="Select date" name="date" id="date" required>
+                                                placeholder="Select date" name="date" id="date">
                                         </div>
 
                                     </div>
@@ -109,8 +109,8 @@
 
                                         <div class="inline-block relative w-5/6">
                                             <select class="appearance-none px-4 py-1 w-full rounded text-gray-500"
-                                                name="destination_station" required>
-                                                <option value="">Select Destination Station</option>
+                                                name="destination_station">
+                                                <option>Select Destination Station</option>
                                                 @foreach ($stations as $station)
                                                     <option value="{{ $station->id }}">Station {{ $station->id }}</option>
                                                 @endforeach

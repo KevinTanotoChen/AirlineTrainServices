@@ -54,8 +54,6 @@ Route::post('/transaction/details', [TransactionController::class,'details'])->n
 
 Route::resource('/transaction', TransactionController::class);
 
-Route::get('/view-transactions', [TransactionController::class,'view_index'])->middleware('auth')->name('transaction-view');
-
 
 Route::get('/dashboard', [DashboardController::class,'index']);
 
@@ -68,4 +66,4 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('/transaction', TransactionDashboardController::class);
     Route::resource('/news-event', NewsEventDashboardController::class);
     Route::resource('/promotion', PromotionDashboardController::class);
-});
+})->middleware('admin');

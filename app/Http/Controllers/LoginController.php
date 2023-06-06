@@ -25,15 +25,14 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $url = $request->input('url');
-            $url_next = $request->input('url_next');
-            // dd($url);
-            // dd($url);
-            // return redirect($url);
-            // return back();
-            // dd(redirect()->intended('/'));
-            return redirect()->intended('/');
-            // return redirect()->back();
+            $user = Auth::user();
+            $isAdmin = $user->is_admin; 
+            
+            if ($isAdmin) {
+                return redirect('/dashboard');
+            } else {
+                return redirect('/');
+            }
         }
 
         return redirect('/login')->with('invalid', 'Invalid Credential');
