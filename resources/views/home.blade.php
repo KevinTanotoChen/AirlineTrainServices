@@ -185,11 +185,9 @@
                         </div>
                         <div class="flex justify-center">
                             <div class="slider-inner flex gap-5 mx-5">
-                                <img src="img/slider-1.png" class="active round shadow-md hover:shadow-lg" alt="">
-                                <img src="img/slider-2.png" class="active round shadow-md hover:shadow-lg" alt="">
-                                <img src="img/slider-3.png" class="round shadow-md hover:shadow-lg" alt="">
-                                <img src="img/slider-4.png" class="round shadow-md hover:shadow-lg" alt="">
-                                <img src="img/slider-5.png" class="round shadow-md hover:shadow-lg" alt="">
+                                @foreach ($promos as $promo)
+                                    <img href="{{ route('promo.show', $promo->id) }}" src="{{ asset('storage/' . $promo->image) }}" class="{{ ($loop->index == 0 || $loop->index == 1) ? 'active' : '' }} round shadow-md hover:shadow-lg" alt="">
+                                @endforeach
                             </div>
 
                         </div>
