@@ -47,7 +47,7 @@
                         <td class="border-b border-gray-200 px-4 py-2">{{ $event->title }}</td>
                         <td class="border-b border-gray-200 px-4 py-2">{{ $event->content }}</td>
                         <td class="border-b border-gray-200 px-4 py-2">
-                            <img src="{{ asset($event->image) }}" alt="News Image" class="product-image">
+                            <img src="{{ asset('storage/'.$event->image) }}" alt="News Image" class="product-image">
                         </td>
                         <td class="border-b border-gray-200 px-4 py-2">
 
