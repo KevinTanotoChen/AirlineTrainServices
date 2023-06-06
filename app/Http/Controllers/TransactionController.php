@@ -187,4 +187,12 @@ class TransactionController extends Controller
     {
         //
     }
+
+    public function view_index()
+    {
+        return view('/transaction/view', [
+            "title" => "Transaction",
+            "transactions" => Transaction::where('user_id', auth()->user()->id)->get()
+        ]);
+    }
 }
