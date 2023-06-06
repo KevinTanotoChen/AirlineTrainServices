@@ -15,6 +15,84 @@
                     <div class="flex flex-col p-2">
                         <div class="flex-1">
 
+                            TICKET SUMMARY
+
+                        </div>
+                        <div class="flex-1 mt-3">
+                            <div class="flex justify-between">
+
+                                <div>
+                                    Origin Station
+                                </div>
+                                <div>
+                                    Station {{ $origin_station }}
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex justify-between">
+                                <div>
+                                    Destination Station
+                                </div>
+                                <div>
+                                    Station {{ $destination_station }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex justify-between">
+                                <div>
+                                    Departure Time
+                                </div>
+                                <div>
+                                    {{ $departure_time }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex justify-between">
+                                <div>
+                                    Arrival Time
+                                </div>
+                                <div>
+                                    {{ $arrival_time }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex justify-between">
+                                <div>
+                                    Total Ordered Seat
+                                </div>
+                                <div>
+                                    {{ $seat_order }}
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="flex-1 mb-10">
+
+            <div class="flex justify-center">
+                <div class="box-content rounded-xl bg-white bg-opacity-50 border mx-24 p-4 shadow-md hover:shadow-lg w-3/4">
+
+                    <div class="flex flex-col p-2">
+                        <div class="flex-1">
+
                             PRICE DETAIL
 
                         </div>
@@ -80,7 +158,9 @@
                                                     name="promo_code" id="promo_code" type="text"
                                                     placeholder="Enter your Promo/Voucher Code">
                                                 @if (session()->has('error_code'))
-                                                    <h4>{{ session()->get('error_code') }}</h4>
+                                                    <div class="invalid-feedback text-red-500">
+                                                        {{ session()->get('error_code') }}
+                                                    </div>
                                                 @endif
 
                                                 @if (session()->has('success_message'))
@@ -244,7 +324,7 @@
                                         </div>
 
                                         @error('payment_type')
-                                            <div class="invalid-feedback">
+                                            <div class="invalid-feedback text-red-500">
                                                 {{ $message }}
                                             </div>
                                         @enderror
