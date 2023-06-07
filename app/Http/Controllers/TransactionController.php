@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Train;
+use App\Models\Ticket;
 use App\Models\Schedule;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreTransactionRequest;
-use App\Models\Ticket;
 
 class TransactionController extends Controller
 {
@@ -120,10 +122,25 @@ class TransactionController extends Controller
             'payment_type' => 'required',
         ]);
 
+
+        // Update seats
+        $train = Train::find($request->train_id);
+        $new_seat_total = $train->total_seat - $request->seat_order;
+        $train->total_seat = $new_seat_total;
+        $train->save();
+
         // Create Ticket entry
         $ticket = new Ticket();
         $ticket->origin_station_id = $request->origin_station;
         $ticket->destination_station_id = $request->destination_station;
+        $ticket->train_id = $request->train_id;
+        $ticket->arrival_time = $request->arrival_time;
+        $ticket->departure_time = $request->departure_time;
+        $ticket->seat = $request->seat_order;
+        
+        # Parse date
+        $parsed_date = Carbon::createFromFormat('m/d/Y', $request->date)->format('Y-m-d');
+        $ticket->date = $parsed_date;
         $ticket->save();
 
         $transaction = new Transaction();

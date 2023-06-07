@@ -18,6 +18,11 @@ return new class extends Migration
             // $table->foreignId('schedule_id');
             $table->foreignId('origin_station_id');
             $table->foreignId('destination_station_id');
+            $table->foreignId('train_id');
+            $table->time('departure_time');
+            $table->time('arrival_time');
+            $table->date('date');
+            $table->integer('seat');
             $table->timestamps();
         });
     }
