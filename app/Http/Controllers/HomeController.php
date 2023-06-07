@@ -98,12 +98,13 @@ class HomeController extends Controller
         $validated_input = $request->validate([
             'origin_station' => 'required',
             'destination_station' => 'required|different:origin_station',
+            'passengers' => 'required',
             'date' => 'after:today'
         ]);
 
         $origin_station = $validated_input['origin_station'];
         $destination_station = $validated_input['destination_station'];
-        
+        $passengers = $validated_input['passengers'];
         if($origin_station < $destination_station){
             $end_station = 4;
         }
@@ -119,6 +120,7 @@ class HomeController extends Controller
                 ->where('s.origin_station_id', '=', $origin_station)
                 ->where('s.destination_station_id', '=', $destination_station)
                 ->where('s.end_station_id', '=', $end_station)
+                ->where('t.total_seat','>=', $passengers)
                 ->get();
         }
 
@@ -131,6 +133,7 @@ class HomeController extends Controller
                 ->where('s2.destination_station_id', $destination_station)
                 ->where('s1.end_station_id', $end_station)
                 ->where('s2.end_station_id', $end_station)
+                ->where('t.total_seat', '>=', $passengers)
                 ->orderBy('s1.departure_time')
                 ->get();
         }
@@ -147,6 +150,7 @@ class HomeController extends Controller
                 ->where('s1.end_station_id', $end_station)
                 ->where('s2.end_station_id', $end_station)
                 ->where('s3.end_station_id', $end_station)
+                ->where('t.total_seat', '>=', $passengers)
                 ->orderBy('s1.departure_time')
                 ->get();
         }
@@ -163,6 +167,7 @@ class HomeController extends Controller
                 ->where('s1.end_station_id', $end_station)
                 ->where('s2.end_station_id', $end_station)
                 ->where('s3.end_station_id', $end_station)
+                ->where('t.total_seat', '>=', $passengers)
                 ->orderBy('s1.departure_time')
                 ->get();
         }
