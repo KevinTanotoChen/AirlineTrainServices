@@ -17,13 +17,25 @@
                         <table class="table-fixed w-11/12">
                             <thead class="text-center">
                                 <tr class="border-b">
-                                    <th>Payment Type</th>
+                                    <th>Date</th>
+                                    <th>Origin Station</th>
+                                    <th>Destination Station</th>
+                                    <th>Departure Time</th>
+                                    <th>Arrival Time</th>
+                                    <th>Seats</th>
+                                    <th>Payment</th>
                                     <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
                                 @foreach ($transactions as $transaction)
                                     <tr class="border-b">
+                                        <td>{{ date('l, F j, Y', strtotime($transaction->ticket->date)) }}</td>
+                                        <td>{{ $transaction->ticket->origin_station_id }}</td>
+                                        <td>{{ $transaction->ticket->destination_station_id }}</td>
+                                        <td>{{ $transaction->ticket->departure_time }}</td>
+                                        <td>{{ $transaction->ticket->arrival_time }}</td>
+                                        <td>{{ $transaction->ticket->seat }}</td>
                                         <td>{{ $transaction->payment_type }}</td>
                                         <td>{{ $transaction->price }}</td>
                                     </tr>

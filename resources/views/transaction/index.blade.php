@@ -22,6 +22,18 @@
                             <div class="flex justify-between">
 
                                 <div>
+                                    Date
+                                </div>
+                                <div>
+                                    {{ date('l, F j, Y', strtotime($date))}}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between">
+
+                                <div>
                                     Origin Station
                                 </div>
                                 <div>
@@ -75,7 +87,7 @@
                             </div>
                         </div>
 
-                        
+
 
                     </div>
 
@@ -299,6 +311,16 @@
                                             value="{{ $origin_station }}">
                                         <input type="hidden" name="destination_station" id="destination_station"
                                             value="{{ $destination_station }}">
+                                        <input type="hidden" name="train_id" id="train_id"
+                                            value="{{ $train_id }}">
+                                        <input type="hidden" name="arrival_time" id="arrival_time"
+                                            value="{{ $arrival_time }}">
+                                        <input type="hidden" name="departure_time" id="departure_time"
+                                            value="{{ $departure_time }}">
+                                        <input type="hidden" name="seat_order" id="seat_order"
+                                            value="{{ $seat_order }}">
+                                        <input type="hidden" name="date" id="date"
+                                            value="{{ $date }}">
 
                                         <div class="flex items-center mb-4">
                                             <input id="debit-card" type="radio" value="Debit Card" name="payment_type"

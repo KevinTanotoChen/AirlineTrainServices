@@ -14,7 +14,7 @@ class Ticket extends Model
     ];
 
     public function transaction(){
-        return $this->belongsTo(Transaction::class);
+        return $this->hasMany(Transaction::class);
     }
 
     public function originStation(){
@@ -23,6 +23,10 @@ class Ticket extends Model
 
     public function destinationStation(){
         return $this->belongsTo(Station::class, 'destination_station_id');
+    }
+
+    public function train(){
+        return $this->belongsTo(Ticket::class, 'train_id');
     }
 
     // public function schedule(){
