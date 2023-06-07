@@ -14,7 +14,7 @@ class PromotionDashboardController extends Controller
      */
     public function index(Request $request)
     {
-        $promotions = Promotion::paginate(6, ['*'], 'page', $request->query('page', 1));
+        $promotions = Promotion::paginate(4, ['*'], 'page', $request->query('page', 1));
         return view('dashboard.promotion', ['promotions' => $promotions]);
     }
 

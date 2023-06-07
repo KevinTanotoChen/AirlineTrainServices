@@ -50,7 +50,7 @@
                   <td class="border-b border-gray-200 px-4 py-2">{{ $promotion->discount_price }}</td>
 
                   <td class="border-b border-gray-200 px-4 py-2">
-                      <img src="{{ asset($promotion->image) }}" alt="Promotion Image" class="product-image">
+                      <img src="{{ asset('storage/'.$promotion->image) }}" alt="Promotion Image" class="product-image">
                   </td>
                   <td class="border-b border-gray-200 px-4 py-2">
 

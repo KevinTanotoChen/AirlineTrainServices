@@ -97,14 +97,13 @@ class HomeController extends Controller
     {
         $validated_input = $request->validate([
             'origin_station' => 'required',
-            'destination_station' => 'required|different:origin_station'
+            'destination_station' => 'required|different:origin_station',
+            'date' => 'after:today'
         ]);
 
         $origin_station = $validated_input['origin_station'];
         $destination_station = $validated_input['destination_station'];
-        // $origin_station = $request->input('origin_station');
-        // $destination_station = $request->input('destination_station');  
-
+        
         if($origin_station < $destination_station){
             $end_station = 4;
         }
@@ -168,7 +167,6 @@ class HomeController extends Controller
                 ->get();
         }
 
-        // return view('/srp/index', compact('schedules'));
         return view('/srp/index', [
             'schedules' => $schedules
         ]);

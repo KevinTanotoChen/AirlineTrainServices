@@ -38,12 +38,12 @@
         }
 
         /* .remove-icon input{
-                                                                                    input[type=number]::-webkit-inner-spin-button,
-                                                                                    input[type=number]::-webkit-outer-spin-button {
-                                                                                    -webkit-appearance: none;
-                                                                                    margin: 0;
-                                                                                    }
-                                                                                } */
+                                                                                            input[type=number]::-webkit-inner-spin-button,
+                                                                                            input[type=number]::-webkit-outer-spin-button {
+                                                                                            -webkit-appearance: none;
+                                                                                            margin: 0;
+                                                                                            }
+                                                                                        } */
 
         input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button {
@@ -59,8 +59,8 @@
 
             <div class="relative home">
                 <img src="img/home-image.jpg" class="brightness-75">
-                <div class="absolute inset-0 flex justify-center items-center">
-                    <div class="box-content h-2/5 w-3/4 rounded-xl bg-white bg-opacity-50 shadow-md hover:shadow-lg ">
+                <div class="flex-col absolute inset-0 flex justify-center items-center">
+                    <div class="box-content h-2/5 w-3/4 rounded-xl bg-white bg-opacity-50 shadow-md hover:shadow-lg mb-5">
                         <div class="inner-box h-1/5 w-full bg-white rounded-t-xl px-3 py-2">
                             <div class="flex ml-10">
                                 <div class="flex-1 w-1/3 text-2xl font-semibold">
@@ -68,7 +68,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <form action="/search" method="POST">
                             @csrf
                             <div class="flex ml-10 p-4">
@@ -145,10 +144,7 @@
                                         </div>
                                         <div class="mt-11">
                                             <button type="submit"
-                                                class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg"
-                                                @error('destination_station')
-                                                    onclick="myFunction()"
-                                                @enderror>
+                                                class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg">
                                                 Find Ticket
                                             </button>
                                         </div>
@@ -158,6 +154,20 @@
                         </form>
 
                     </div>
+                    @error('destination_station')
+                        <div role="alert">
+                            <div class="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700">
+                                <p>{{ $message }}</p>
+                            </div>
+                        </div>
+                    @enderror
+                    @error('date')
+                        <div role="alert">
+                            <div class="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700">
+                                <p>{{ $message }}</p>
+                            </div>
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -186,7 +196,10 @@
                         <div class="flex justify-center">
                             <div class="slider-inner flex gap-5 mx-5">
                                 @foreach ($promos as $promo)
-                                    <img href="{{ route('promo.show', $promo->id) }}" src="{{ asset('storage/' . $promo->image) }}" class="{{ ($loop->index == 0 || $loop->index == 1) ? 'active' : '' }} round shadow-md hover:shadow-lg" alt="">
+                                    <img href="{{ route('promo.show', $promo->id) }}"
+                                        src="{{ asset('storage/' . $promo->image) }}"
+                                        class="{{ $loop->index == 0 || $loop->index == 1 ? 'active' : '' }} round shadow-md hover:shadow-lg"
+                                        alt="">
                                 @endforeach
                             </div>
 
@@ -279,8 +292,5 @@
                 }
             });
         });
-        function myFunction() {
-            alert("Destination Station should be different with Origin Station");
-        }
     </script>
 @endsection

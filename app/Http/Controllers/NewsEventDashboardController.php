@@ -14,7 +14,7 @@ class NewsEventDashboardController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::paginate(6, ['*'], 'page', $request->query('page', 1));
+        $events = Event::paginate(4, ['*'], 'page', $request->query('page', 1));
         return view('dashboard.event', ['events' => $events]);
     }
 
