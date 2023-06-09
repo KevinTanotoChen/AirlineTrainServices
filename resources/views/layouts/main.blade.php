@@ -99,28 +99,28 @@
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
                     <div class="mb-5">
-                        <h4 class="text-2xl pb-4">Company</h4>
+                        <h4 class="text-2xl pb-4">Airline Train Service</h4>
                         <p>
-                            Address <br>
-                            Address <br>
-                            Address <br>
-                            Address <br>
+                            About Us Contact Us <br>
+                            Services FAQ <br>
+                            Services FAQ <br>
+                            Portfolio Terms of Service <br>
                         </p>
                     </div>
                     <div class="mb-5">
-                        <h4 class="pb-4">Useful Links</h4 class="pb-4">
+                        <h4 class="pb-4">Address</h4 class="pb-4">
                         <ul>
-                            <li class="pb-4">Lorem</li>
-                            <li class="pb-4">Lorem</li>
-                            <li class="pb-4">Lorem</li>
+                            <li class="pb-4">123 Main Street,</li>
+                            <li class="pb-4">Cityville,</li>
+                            <li class="pb-4">State Province</li>
                         </ul>
                     </div>
                     <div class="mb-5">
                         <h4 class="pb-4">Useful Links</h4>
                         <ul>
-                            <li class="pb-4">Lorem</li>
-                            <li class="pb-4">Lorem</li>
-                            <li class="pb-4">Lorem</li>
+                            <li class="pb-4">Lorem Ipsum</li>
+                            <li class="pb-4">Amet Sit</li>
+                            <li class="pb-4">Consectur</li>
                         </ul>
                     </div>
                     <div class="mb-5">
