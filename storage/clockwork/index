@@ -1082,3 +1082,17 @@
 1686321682-0602-1254591643,1686321681.974,GET,/aboutus,Closure,200,158.35380554199,request
 1686321683-0350-2031003862,1686321682.9503,GET,/promo,"App\Http\Controllers\PromotionController@index",200,189.84413146973,request
 1686321709-0020-930894238,1686321708.9098,GET,/,"App\Http\Controllers\HomeController@index",200,196.60711288452,request
+1686321993-4782-1684744226,1686321993.3688,GET,/login,"App\Http\Controllers\LoginController@show",200,201.76482200623,request
+1686321998-1118-543197644,1686321998.0159,POST,/login,"App\Http\Controllers\LoginController@authenticate",302,273.38910102844,request
+1686321998-3993-196440569,1686321998.3018,GET,/dashboard,"App\Http\Controllers\DashboardController@index",200,217.05603599548,request
+1686321999-6220-1298580130,1686321999.536,GET,/dashboard/promotion,"App\Http\Controllers\PromotionDashboardController@index",200,186.39016151428,request
+1686321999-8266-1050744925,1686321999.7398,GET,/dashboard/js/jquery-3.6.0.js,,404,157.3657989502,request
+1686322000-6003-1767340127,1686322000.5165,GET,/dashboard/news-event,"App\Http\Controllers\NewsEventDashboardController@index",200,187.48307228088,request
+1686322000-8092-430540860,1686322000.7239,GET,/dashboard/js/jquery-3.6.0.js,,404,152.99701690674,request
+1686322002-0127-1277018703,1686322001.925,GET,/dashboard/news-event/1/edit?,"App\Http\Controllers\NewsEventDashboardController@edit",200,178.36403846741,request
+1686322002-2185-1870180933,1686322002.1223,GET,/dashboard/news-event/1/js/jquery-3.6.0.js,,404,159.83700752258,request
+1686322230-6918-1353823867,1686322230.5767,POST,/logout,"App\Http\Controllers\LoginController@logout",302,239.36891555786,request
+1686322230-9379-1088297204,1686322230.8301,GET,/,"App\Http\Controllers\HomeController@index",200,227.62203216553,request
+1686322349-5018-103839461,1686322349.4192,GET,/,"App\Http\Controllers\HomeController@index",200,252.92277336121,request
+1686322410-6373-1866014453,1686322410.5333,GET,/,"App\Http\Controllers\HomeController@index",200,257.02595710754,request
+1686322439-2438-1331527720,1686322439.156,GET,/,"App\Http\Controllers\HomeController@index",200,215.67296981812,request
