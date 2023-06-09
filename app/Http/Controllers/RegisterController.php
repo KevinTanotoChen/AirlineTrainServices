@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class RegisterController extends Controller
 {
     public function show()
     {
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
         return view('register', [
             'title' => 'Register'
         ]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewsEventDashboardController extends Controller
 {
@@ -50,7 +51,9 @@ class NewsEventDashboardController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('/event-images'), $imageName);
+            // Storage::put($imageName, $image);
+            // $image->move(public_path('/event-images'), $imageName);
+            $image->storeAs('public/event-images', $imageName);
             $event->image = '/event-images/' . $imageName;
         }
         $event->save();
@@ -103,7 +106,8 @@ class NewsEventDashboardController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('/event-images'), $imageName);
+            // $image->move(public_path('/event-images'), $imageName);
+            $image->storeAs('public/event-images', $imageName);
             $event->image = '/event-images/' . $imageName;
         }
         $event->save();

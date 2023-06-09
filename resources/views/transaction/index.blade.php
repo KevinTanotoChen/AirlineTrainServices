@@ -1,4 +1,4 @@
-{{-- @foreach ($transactions as $transaction)
+     {{-- @foreach ($transactions as $transaction)
     <p>{{$transaction->user->user_name}}</p>
 @endforeach --}}
 

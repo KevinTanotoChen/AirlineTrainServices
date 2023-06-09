@@ -52,8 +52,9 @@ class PromotionDashboardController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('/promotion-images'), $imageName);
-            $promotion->image = '/promotion-images/' . $imageName;
+            // $image->move(public_path('/promotion-images'), $imageName);
+            $image->storeAs('public/promo-images', $imageName);
+            $promotion->image = '/promo-images/' . $imageName;
         }
         $promotion->save();
 
@@ -109,8 +110,8 @@ class PromotionDashboardController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('/promotion-images'), $imageName);
-            $promotion->image = '/promotion-images/' . $imageName;
+            $image->storeAs('public/promo-images', $imageName);
+            $promotion->image = '/promo-images/' . $imageName;
         }
         $promotion->save();
 

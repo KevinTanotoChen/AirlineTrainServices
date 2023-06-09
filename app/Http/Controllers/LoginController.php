@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -10,6 +11,8 @@ class LoginController extends Controller
 {
     public function show()
     {
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
         // Redirect::setIntendedUrl(url()->previous());
         return view('login', [
             'title' => 'Login'

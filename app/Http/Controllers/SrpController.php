@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class SrpController extends Controller
 {
@@ -15,6 +16,9 @@ class SrpController extends Controller
     public function index()
     {
         // $schedules = Schedule::with('train')->get();
+
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
 
         return view('/srp/index',[
             "title" => "Search Result",

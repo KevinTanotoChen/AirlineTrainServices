@@ -10,6 +10,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreTransactionRequest;
+use Illuminate\Support\Facades\App;
 
 class TransactionController extends Controller
 {
@@ -20,6 +21,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
+
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
 
         return view('/transaction/index',[
             "title" => "Transaction",

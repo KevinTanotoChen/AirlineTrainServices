@@ -1,5 +1,6 @@
+{{-- {{ App::setlocale('lang')}} --}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,27 +24,38 @@
 
         <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 md:mr-20">
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="/schedule" class="text-xl">Schedule</a>
+                <a href="/schedule" class="text-xl">{{ __('navbar.nav.schedule') }}</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="/promo" class="text-xl">Promo</a>
+                <a href="/promo" class="text-xl">{{ __('navbar.nav.promo') }}</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="/event" class="text-xl">News & Event</a>
+                <a href="/event" class="text-xl">{{ __('navbar.nav.news') }}</a>
             </li>
             <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                <a href="/aboutus" class="text-xl">About Us</a>
+                <a href="/aboutus" class="text-xl">{{ __('navbar.nav.about') }}</a>
             </li>
+            
+            {{-- <li class="mx-4 my-6 md:my-0 hover:text-red-400">
+
+                <select name="lang" id="lang" onchange="changeLanguage(this.value)" >
+                
+                    
+                    <a href="{{ route ('change-lang', ['lang'=>'id']) }}" class="text-xl">EN</a>
+                    <a href="{{ route ('change-lang', ['lang'=>'en']) }}" class="text-xl">ID</a>
+                    <option value="id">ID</option>
+                </select>
+            </li> --}}
             
             @auth
                 <li class="mx-4 my-6 md:my-0 hover:text-red-400">
-                    <a href="/view-transactions" class="text-xl">Transaction</a>
+                    <a href="/view-transactions" class="text-xl">{{ __('navbar.nav.transaction') }}</a>
                 </li>
 
                 <form action="/logout" method="POST">
                     @csrf
                     <button type="submit" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
-                        Logout
+                        {{ __('navbar.nav.logout') }}
                     </button>
                 </form>
             @else
@@ -58,12 +70,23 @@
                     Register
                 </a> --}}
                 <a href="/login" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded">
-                    Login
+                    {{ __('navbar.nav.login') }}
                 </a>
                 <a href="/register" class="bg-red-400 duration-500 px-6 py-2 mx-4 hover:bg-red-300 rounded my-6 md:my-0">
-                    Register
+                    {{ __('navbar.nav.register') }}
                 </a>
             @endauth
+
+            <li class="ml-4 my-6 md:my-0 border-solid border-2 py-1 px-0.5 rounded">
+                <a href="{{ route ('change-lang', ['lang'=>'en']) }}" class="text-xl hover:text-red-400">EN </a>
+                <span class="text-">-</span>
+                <a href="{{ route ('change-lang', ['lang'=>'id']) }}" class="text-xl hover:text-red-400"> ID</a>
+
+            </li>
+            {{-- <li class="mr-4 my-6 md:my-0 hover:text-red-400 border-solid border-2 py-1 px-0.5">
+                <a href="{{ route ('change-lang', ['lang'=>'id']) }}" class="text-xl">Id</a>
+            </li> --}}
+
         </ul>
     </nav>
 
@@ -122,6 +145,10 @@
         function Menu(e){
           let list = document.querySelector('ul');
           e.name === 'menu' ? (e.name = "close",list.classList.add('top-[80px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[80px]'),list.classList.remove('opacity-100'))
+        }
+
+        function changeLanguage(lang) {
+            window.location.href =  "{{ route('change-lang') }}?lang=" + lang;
         }
     </script>
 </body>

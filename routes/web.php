@@ -13,6 +13,9 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\NewsEventDashboardController;
 use App\Http\Controllers\PromotionDashboardController;
 use App\Http\Controllers\TransactionDashboardController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,12 +50,12 @@ Route::resource('/event', EventController::class);
 
 Route::resource('/schedule', ScheduleController::class);
 
-Route::resource('/srp', SrpController::class);
+Route::resource('/srp', SrpController::class)->middleware('auth');
 
-Route::get('/transaction/details', [TransactionController::class,'details_redirect'])->name('transaction-details-redirect');
-Route::post('/transaction/details', [TransactionController::class,'details'])->name('transaction-details');
+Route::get('/transaction/details', [TransactionController::class,'details_redirect'])->middleware('auth')->name('transaction-details-redirect');
+Route::post('/transaction/details', [TransactionController::class,'details'])->middleware('auth')->name('transaction-details');
 
-Route::resource('/transaction', TransactionController::class);
+Route::resource('/transaction', TransactionController::class)->middleware('auth');
 
 Route::get('/view-transactions', [TransactionController::class,'view_index'])->middleware('auth')->name('transaction-view');
 
@@ -64,8 +67,17 @@ Route::get('/aboutus', function () {
 });
 
 Route::prefix('dashboard')->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
-    Route::resource('/transaction', TransactionDashboardController::class);
-    Route::resource('/news-event', NewsEventDashboardController::class);
-    Route::resource('/promotion', PromotionDashboardController::class);
-})->middleware('admin');
+    Route::get('/', [DashboardController::class, 'index'])->middleware('admin');
+    Route::resource('/transaction', TransactionDashboardController::class)->middleware('admin');
+    Route::resource('/news-event', NewsEventDashboardController::class)->middleware('admin');
+    Route::resource('/promotion', PromotionDashboardController::class)->middleware('admin');
+});
+
+Route::get('change-lang', function(Request $request){
+    $lang = $request->lang;
+    App::setLocale($lang);
+    Session::put('lang',$lang);
+
+    return redirect()->back();
+})->name('change-lang');
+
