@@ -54,7 +54,7 @@
                     </div>
     
                     <div class="mb-4">
-                        <img src="{{ asset($event->image) }}" alt="News Image" class="product-image">
+                        <img src="{{ asset('storage/'.$event->image) }}" alt="News Image" class="product-image">
                     </div>
                     <div class="mb-4">
                         <label for="image" class="block text-gray-700 font-bold mb-2">{{ __('Image') }}</label>

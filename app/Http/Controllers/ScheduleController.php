@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class ScheduleController extends Controller
 {
@@ -14,6 +15,8 @@ class ScheduleController extends Controller
      */
     public function index(Request $request)
     {   
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
         $end_station = $request['end_station_id'];
 
         if($end_station == 1){

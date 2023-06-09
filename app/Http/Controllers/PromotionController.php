@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Promotion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PromotionController extends Controller
 {
@@ -14,6 +15,8 @@ class PromotionController extends Controller
      */
     public function index()
     {
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
         return view('/promo/index', [
             "title" => "Events",
             "promotions" => Promotion::all()

@@ -64,7 +64,7 @@
                         <div class="inner-box h-1/5 w-full bg-white rounded-t-xl px-3 py-2">
                             <div class="flex ml-10">
                                 <div class="flex-1 w-1/3 text-2xl font-semibold">
-                                    Select Your Ticket
+                                    {{ __('navbar.find.title') }}
                                 </div>
                             </div>
                         </div>
@@ -73,13 +73,13 @@
                             <div class="flex ml-10 p-4">
                                 <div class="flex-1">
                                     <div class="flex-col">
-                                        <div class="font-semibold text-lg">Origin</div>
+                                        <div class="font-semibold text-lg">{{ __('navbar.find.origin') }}</div>
 
 
                                         <div class="inline-block relative w-5/6">
                                             <select class="appearance-none px-4 py-1 w-full rounded text-gray-500"
                                                 name="origin_station" required>
-                                                <option value="">Select Origin Station</option>
+                                                <option value="">{{ __('navbar.find.origin_con') }}</option>
                                                 @foreach ($stations as $station)
                                                     <option value="{{ $station->id }}">Station {{ $station->id }}</option>
                                                 @endforeach
@@ -90,7 +90,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mt-5 font-semibold text-lg">Departure Time</div>
+                                        <div class="mt-5 font-semibold text-lg">{{ __('navbar.find.departure') }}</div>
 
                                         <div class="relative">
                                             <div
@@ -98,19 +98,19 @@
                                                 <i class="fa-regular fa-calendar"></i>
                                             </div>
                                             <input datepicker type="text" class="rounded block w-5/6 pl-9 px-4 py-1"
-                                                placeholder="Select date" name="date" id="date" required>
+                                                placeholder="{{ __('navbar.find.dep_con') }}" name="date" id="date" required>
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex-col">
-                                        <div class="font-semibold text-lg">Destination</div>
+                                        <div class="font-semibold text-lg">{{ __('navbar.find.destination') }}</div>
 
                                         <div class="inline-block relative w-5/6">
                                             <select class="appearance-none px-4 py-1 w-full rounded text-gray-500"
                                                 name="destination_station" required>
-                                                <option value="">Select Destination Station</option>
+                                                <option value="">{{ __('navbar.find.des_con') }}</option>
                                                 @foreach ($stations as $station)
                                                     <option value="{{ $station->id }}">Station {{ $station->id }}</option>
                                                 @endforeach
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex-col">
-                                        <div class="font-semibold text-lg">Total Passenger</div>
+                                        <div class="font-semibold text-lg">{{ __('navbar.find.passenger') }}</div>
                                         <div class="relative">
                                             <input type="text" class="rounded block w-5/6 pl-9 px-4 py-1" value="">
                                             <div class="absolute inset-y-0 left-0 flex items-center w-5/6 justify-between">
@@ -145,7 +145,7 @@
                                         <div class="mt-11">
                                             <button type="submit"
                                                 class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded text-lg">
-                                                Find Ticket
+                                                {{ __('navbar.find.find') }}
                                             </button>
                                         </div>
                                     </div>
@@ -177,10 +177,10 @@
                 <div class="flex-initial">
                     <div class="box-content rounded-xl bg-white bg-opacity-50 border p-4 h-56 shadow-md hover:shadow-lg">
                         <p class="text-2xl font-bold">
-                            Check Our Promotion <br> For Lower Price
+                            {{ __('navbar.promo.check1') }} <br> {{ __('navbar.promo.check2') }}
                         </p>
                         <button class="bg-red-400 duration-500 px-4 py-1 hover:bg-red-300 rounded mt-5 text-lg">
-                            <a href="/promo">Check All Promotion</a>
+                            <a href="/promo">{{ __('navbar.promo.all_promo') }}</a>
                         </button>
                     </div>
                 </div>

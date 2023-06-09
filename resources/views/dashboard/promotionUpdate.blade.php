@@ -76,7 +76,7 @@
                     </div>
     
                     <div class="mb-4">
-                        <img src="{{ asset($promotion->image) }}" alt="Promotion Image" class="product-image">
+                        <img src="{{ asset('storage/'.$promotion->image) }}" alt="Promotion Image" class="product-image">
                     </div>
                     <div class="mb-4">
                         <label for="image" class="block text-gray-700 font-bold mb-2">{{ __('Image') }}</label>

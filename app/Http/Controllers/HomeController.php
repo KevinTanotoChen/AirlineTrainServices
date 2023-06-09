@@ -7,6 +7,7 @@ use App\Models\Station;
 use App\Models\Schedule;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -17,8 +18,9 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-
+    {   
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
         return view('home', [
             'title' => 'Home',
             'stations'=> Station::all(),

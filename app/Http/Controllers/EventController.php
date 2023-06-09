@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class EventController extends Controller
 {
@@ -14,6 +15,9 @@ class EventController extends Controller
      */
     public function index()
     {
+        $lang = session('lang', 'en');
+        App::setlocale(session('lang'));
+
         return view('/event/index',[
             "title" => "Events",
             "events" =>Event::all()
